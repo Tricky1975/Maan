@@ -3,8 +3,15 @@ BLITZMAX=/Volumes/Scyndi/dev_tools/BlitzMax/Vanilla/Mac
 OUTPUT=../../bin
 # END
 
+echo compiling builder
 cd ../bmp
 $BLITZMAX/bin/bmk makeapp -r -o $OUTPUT/bmp -a -t console bmp.bmx
 
+echo compiling maan engine
+cd ../maan
+$BLITZMAX/bin/bmk makeapp -r -a -t gui maan.bmx
 
+echo packing maan engine
+jcr6 add $OUTPUT/maan_mac.jcr maan.app -cmzlib -fmzlib -doj
+rm -R maan.app
 
