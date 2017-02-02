@@ -8,6 +8,9 @@
 bmp
 # bmp = build maan project ;)
 
+# BlitzMax compilation shit
+.bmx
+
 # MacOS X shit
 .DS_Store
 ._*

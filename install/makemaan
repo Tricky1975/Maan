@@ -1,0 +1,10 @@
+# In order to make this work for you, please modify the lines until "# END" with your own folder set ups.
+BLITZMAX=/Volumes/Scyndi/dev_tools/BlitzMax/Vanilla/Mac
+OUTPUT=../../bin
+# END
+
+cd ../bmp
+$BLITZMAX/bin/bmk makeapp -r -o $OUTPUT/bmp -a -t console bmp.bmx
+
+
+
