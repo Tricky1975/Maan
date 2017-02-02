@@ -1,3 +1,5 @@
+![](https://github.com/Tricky1975/Maan/blob/master/icons/Maan.png)
+
 # Maan
 A simple lua based gui utility
 
