@@ -1,0 +1,12 @@
+x=0
+y=0
+width=75%
+height=75%
+caption=Hello World
+flags=CENTER CLIENT
+kids
+     Label HelloLabel
+         caption=Hello World
+         width=100%
+         height=100%
+end
