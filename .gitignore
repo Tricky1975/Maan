@@ -1,10 +1,13 @@
 
 # Other files and folders
 .settings/
+MKL_Backup
 
 # Executables
 *.exe
 *.app
+*.MKL.ini
+*
 # bmp
 # bmp = build maan project ;) If you use the makemaan script only it does not need to be here. In fact it can only spook up this repository. :)
 
