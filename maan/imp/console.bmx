@@ -44,11 +44,14 @@ Private
 	
 	
 Public
-	Function UpdateVersion() SetGadgetText consolewindow,"Maan v"+mkl.getnewestversion() " - Debug Console"
+	Function UpdateVersion() SetGadgetText consolewindow,"Maan v"+MKL_NewestVersion()+" - Debug Console"; End Function
 
-	Function CSay(M$)
+	Function CSay(M$="")
 		GaleCon.GaleConsoleWrite(M,255,180,0)
 	End Function
 	
-	CSay("Maan - coded by: Jeroen Broks")
-	CSay()
+	CSay "Maan - coded by: Jeroen Broks"
+	CSay 
+	CSay "(c) Jeroen P. Broks"
+	CSay "Licensed under the General Public License v3 (GNU)"
+	CSay

@@ -56,4 +56,4 @@ Next
 If Not jcrYes Then Notify "No project attached!" End
 
 
-Global JCR:TJCRDir = jcrdir(jcrmain+t)
+Global JCR:TJCRDir = JCR_Dir(jcrmain+JCRext)
