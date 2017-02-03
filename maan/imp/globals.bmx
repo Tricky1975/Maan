@@ -1,6 +1,8 @@
 Strict
 Import jcr6.jcr6main
 
+Import "console.bmx"
+
 Global tryext$[]=["",".jcr",".zip",".pak",".tar"]
 
 ?macos
