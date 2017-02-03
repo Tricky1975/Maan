@@ -12,6 +12,7 @@ cd ../maan
 $BLITZMAX/bin/bmk makeapp -r -a -t gui maan.bmx
 
 echo packing maan engine
-jcr6 add $OUTPUT/maan_mac.jcr maan.app -cmzlib -fmzlib -doj
+#jcr6 add $OUTPUT/maan_mac.jcr maan.app maan_mac.ini -cmzlib -fmzlib -doj
+jcr6 add $OUTPUT/maan_mac.jcr "#maan_mac.bj6" -doj
 rm -R maan.app
 
