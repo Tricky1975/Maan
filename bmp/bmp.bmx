@@ -1,27 +1,43 @@
-Rem
-	Build Maan Project
-	
-	
-	
-	
-	(c) Jeroen P. Broks, 2017, All rights reserved
-	
-		This program is free software: you can redistribute it and/or modify
-		it under the terms of the GNU General Public License as published by
-		the Free Software Foundation, either version 3 of the License, or
-		(at your option) any later version.
-		
-		This program is distributed in the hope that it will be useful,
-		but WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-		GNU General Public License for more details.
-		You should have received a copy of the GNU General Public License
-		along with this program.  If not, see <http://www.gnu.org/licenses/>.
-		
-	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
-	to the project the exceptions are needed for.
-Version: 17.02.03
-End Rem
 
-' Only the base now, so I can test the build script
+Strict
+
+Framework tricky_units.initfile2
+Import    tricky_units.ListDir
+Import    tricky_units.prefixsuffix
+Import    jcr6.zlibdriver
+
+MKL_Version "",""
+MKL_Lic     "",""
+
+Global me$=StripAll(AppFile)
+?macos
+Const platform$="Mac"
+?win32
+Const platform$="Windows"
+?Linux
+Const platform$="Linux"
+?
+
+Print "Build Maan Project v"+MKL_NewestVersion()
+Print "Coded by: Tricky"
+Print "(c) Jeroen P. Broks 2017"
+Print "Licensed under the GNU General Public License v3"
+
+If (Len AppArgs)<2
+	Print "Usage: "+me+" <action> <source folder> [<output folder>] [options]"
+	Print 
+	Print "Actions:"
+	Print "   version -- Show all version numbers of used source files"
+	Print "   make    -- Create the full application"
+	Print
+	Print "Options"
+	For Local p$ = EachIn(ListDir(AppDir))
+		If ExtractExt(p) And Prefixed("maan_")
+			Local pp$=Right(p,Len(p)-5)
+			Print Left("- p:"+pp+"             ",20)+" -- Build for Mac"
+		EndIf
+	Print
+	Print "If not platform has been defined, the system will only build for "+platform
+	End
+endif		
 
