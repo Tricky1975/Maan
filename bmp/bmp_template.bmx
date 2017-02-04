@@ -40,8 +40,9 @@ Private
 Public
 
 
-	Function bmp_register(name$,t:bmp_template)
+	Function bmp_register(name$,t:bmp_template,e$)
 		MapInsert act,name,t
+		t.explain=e
 	End Function
 	
 	Function bmp_get:bmp_template(name$)
@@ -49,7 +50,8 @@ Public
 	End Function
 	
 	Function bmp_work(n$)
-		bmp_get(n).work
+		Local t:bmp_template = bmp_get(n)
+		If Not t Print "Illegal command!" Else t.work
 	End Function
 	
 	Function bmp_explain()
