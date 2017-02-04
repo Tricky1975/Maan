@@ -17,4 +17,6 @@ restriction the public domain offers. (YAY!)
 *********************************************************** 
 Version 17.02.03
 ]]
---[[ Since no code is required the existence of this file will do ]]
+--[[ Since no code is required at the present time the existence of this file will do 
+     Some ACTUAL code will be added later ;)
+  ]]
