@@ -1,0 +1,10 @@
+# Instruct file
+
+FATSTORAGE:zlib
+
+FILE:maan.app
+TARGET:ext/maan.app.ignore
+Storage:zlib
+FILE:maan_mac.ini
+TARGET:ini/maan.ini
+Storage:zlib
