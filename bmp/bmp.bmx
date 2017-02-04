@@ -6,6 +6,8 @@ Import    tricky_units.ListDir
 Import    tricky_units.prefixsuffix
 Import    jcr6.zlibdriver
 
+Import "bmp_template.bmx" ' debug line. MUST BE on REM in actual version.
+
 MKL_Version "",""
 MKL_Lic     "",""
 
