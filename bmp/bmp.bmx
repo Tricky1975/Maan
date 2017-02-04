@@ -32,12 +32,13 @@ If (Len AppArgs)<2
 	Print
 	Print "Options"
 	For Local p$ = EachIn(ListDir(AppDir))
-		If ExtractExt(p) And Prefixed("maan_")
-			Local pp$=Right(p,Len(p)-5)
+		If ExtractExt(p) And Prefixed(p,"maan_")
+			Local pp$=StripExt(Right(p,Len(p)-5))
 			Print Left("- p:"+pp+"             ",20)+" -- Build for Mac"
 		EndIf
+	Next	
 	Print
 	Print "If not platform has been defined, the system will only build for "+platform
 	End
-endif		
+EndIf		
 
