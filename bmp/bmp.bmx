@@ -41,9 +41,9 @@ Global me$=StripAll(AppFile)
 ?macos
 Const platform$="Mac"
 ?win32
-Const platform$="Windows"
+Const platform$="Windows" 
 ?Linux
-Const platform$="Linux"
+Const platform$="Linux" 
 ?
 
 Print "Build Maan Project v"+MKL_NewestVersion()
@@ -65,6 +65,7 @@ If (Len AppArgs)<2
 			Local pp$=StripExt(Right(p,Len(p)-5))
 			Print Left(" -p:"+pp+"             ",20)+" -- Build for Mac"
 		EndIf
+		Print Left(" -d:<dir>            ",20)+" -- set up the target folder for the application"
 	Next	
 	Print
 	Print "If not platform has been defined, the system will only build for "+platform

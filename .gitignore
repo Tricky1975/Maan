@@ -7,7 +7,7 @@ MKL_Backup
 *.exe
 *.app
 *.MKL.ini
-
+*.debug
 
 # BlitzMax compilation shit
 .bmx

@@ -25,8 +25,16 @@ End Rem
 Strict
 
 Import brl.map
+Import tricky_units.Dirry
+Import tricky_units.prefixsuffix
+Import tricky_units.initfile2
+Import jcr6.zlibdriver
+Import jcr6.realdir
+
 MKL_Version "Maan - bmp_template.bmx","17.02.04"
 MKL_Lic     "Maan - bmp_template.bmx","GNU General Public License 3"
+
+
 
 	Type bmp_template
 		Method Work() Abstract
