@@ -1,0 +1,6 @@
+[vars]
+Title=Button Test
+Author=Jeroen P. Broks
+Console=Show
+StartForm=Button
+exe=Button

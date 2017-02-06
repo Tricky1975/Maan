@@ -1,0 +1,12 @@
+flags=CENTER TITLE CLIENT
+caption=Button Demo
+width=50%
+height=100
+kids
+    Button Button
+     x=25%
+     y=25
+     height=25
+     width=50%
+     caption=Hit me
+end
