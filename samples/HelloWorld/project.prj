@@ -1,6 +1,6 @@
 [vars]
 Title=Hello World
 Author=Jeroen P. Broks
-Console=Hide
+Console=Show
 StartForm=Hello
 exe=Hello World

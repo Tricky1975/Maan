@@ -15,8 +15,16 @@ not longer than 70 years ago, you can deem this file
 with basically comes down to the same lack of
 restriction the public domain offers. (YAY!)
 *********************************************************** 
-Version 17.02.04
+Version 17.02.07
 ]]
---[[ Since no code is required at the present time the existence of this file will do 
-     Some ACTUAL code will be added later ;)
-  ]]
+
+
+function GALE_OnLoad()
+    Console.Write("HELLO WORLD!!!")
+    -- Yeah, this is just some test code to see if it all works the way it should, eh ;)
+end
+
+
+function FORM_Hello_Close(key)
+    os.exit()
+end

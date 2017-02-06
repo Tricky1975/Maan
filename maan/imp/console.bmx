@@ -20,14 +20,13 @@ Rem
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.02.04
+Version: 17.02.07
 End Rem
 Strict
-Import maxgui.maxgui
-Import gale.mgui
+Import "module.h.bmx"
 
 
-MKL_Version "Maan - console.bmx","17.02.04"
+MKL_Version "Maan - console.bmx","17.02.07"
 MKL_Lic     "Maan - console.bmx","GNU General Public License 3"
 
 
@@ -37,6 +36,7 @@ Private
 	
 	SetGadgetColor consolecontent,255,180,0,0
 	SetGadgetColor consolecontent, 25, 18,0,1
+	SetGadgetFont consolecontent,LookupGuiFont( GUIFONT_MONOSPACED, 16)
 	
 	
 	GALE_ExitGadget = consolewindow
@@ -55,3 +55,5 @@ Public
 	CSay "(c) Jeroen P. Broks"
 	CSay "Licensed under the General Public License v3 (GNU)"
 	CSay
+
+	

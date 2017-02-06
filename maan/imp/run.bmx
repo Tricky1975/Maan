@@ -1,6 +1,6 @@
 Rem
-	Maan - Main Engine
-	
+	Maan - Run
+	Runs the process
 	
 	
 	
@@ -22,21 +22,30 @@ Rem
 	to the project the exceptions are needed for.
 Version: 17.02.07
 End Rem
-' empty script only set up to make sure the building script works
-
-' (The maan.icns file is present here, because I use a modified version of bmk myself which will automatically put the icon in the map bundle)
-
-
 Strict
-Framework MaxGui.Drivers
+Import "globals.bmx"
 
-Import    "imp/init.bmx"
-Import    "imp/run.bmx"
+MKL_Version "Maan - run.bmx","17.02.07"
+MKL_Lic     "Maan - run.bmx","GNU General Public License 3"
 
-MKL_Version "Maan - maan.bmx","17.02.07"
-MKL_Lic     "Maan - maan.bmx","GNU General Public License 3"
 
-updateversion
 
-Init
-run
+Private
+	Global EID,ESource:TGadget
+
+
+Public
+	Function Run()
+		Repeat
+			PollEvent
+			eid = EventID()
+			ESource = TGadget(EventSource())
+			If eid=event_windowclose And esource=GALE_ExitGadget End
+			Select eid
+				Case event_gadgetaction
+					GetTemplate(bygad(esource).gc).action bygad(esource).id
+				Case event_windowclose	
+					GetTemplate(bygad(esource).gc).close bygad(esource).id
+			End Select
+		Forever
+	End Function

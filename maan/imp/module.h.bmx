@@ -1,6 +1,6 @@
 Rem
-	Bmp - Template
-	
+	Maan - Modules
+	All needed modules listed here
 	
 	
 	
@@ -22,51 +22,43 @@ Rem
 	to the project the exceptions are needed for.
 Version: 17.02.07
 End Rem
-Strict
+SuperStrict
 
-Import brl.map
-Import tricky_units.Dirry
-Import tricky_units.prefixsuffix
+
+
+'General
+Import maxgui.maxgui
+Import tricky_units.StringMap
 Import tricky_units.initfile2
+Import brl.pngloader
+Import tricky_units.Listfile
+
+
+'JCR6
 Import jcr6.zlibdriver
+Import jcr6.quakepak
 Import jcr6.realdir
+Import jcr6.tar4jcr6
+Import jcr6.jcr6zipstream
+Import brl.eventqueue
 
-MKL_Version "Maan - bmp_template.bmx","17.02.07"
-MKL_Lic     "Maan - bmp_template.bmx","GNU General Public License 3"
-
-
-
-	Type bmp_template
-		Method Work() Abstract
-		Field Explain$		
-	End Type
+'GALE
+Import gale.mgui
+Import gale.multiscript
 
 
-Private
-	Global act:TMap = New TMap
-	
-Public
+
+MKL_Version "Maan - module.h.bmx","17.02.07"
+MKL_Lic     "Maan - module.h.bmx","GNU General Public License 3"
 
 
-	Function bmp_register(name$,t:bmp_template,e$)
-		MapInsert act,name,t
-		t.explain=e
-	End Function
-	
-	Function bmp_get:bmp_template(name$)
-		Return bmp_template(MapValueForKey(act,name))
-	End Function
-	
-	Function bmp_work(n$)
-		Local t:bmp_template = bmp_get(n)
-		If Not t Print "Illegal command!" Else t.work
-	End Function
-	
-	Function bmp_explain()
-		Local k$
-		For k=EachIn(MapKeys(act))
-			Print Left("   "+k+"                  ",20)+" -- "+bmp_get(k).explain
-		Next
-	End Function
+Rem
 
-	
+These are nothing more but all modules needed by this project put together in one file.
+Only MaxGui.Driver is not here, as it called by "maan.bmx" in the FrameWork command, I couldn't do that elseway
+because FrameWork is an essential command in this project (not only it makes the executables smaller, but
+it also prevents conflicts with GALE and MaxLua) and FrameWork can only be called from the main file, which is
+I guess not really thought well through by BlitzMax if you see all this :P
+
+
+End Rem

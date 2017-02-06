@@ -20,11 +20,11 @@ Rem
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.02.04
+Version: 17.02.07
 End Rem
 Strict
 Import "bmp_template.bmx"
-MKL_Version "Maan - bmp_make.bmx","17.02.04"
+MKL_Version "Maan - bmp_make.bmx","17.02.07"
 MKL_Lic     "Maan - bmp_make.bmx","GNU General Public License 3"
 
 Private

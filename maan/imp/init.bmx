@@ -1,6 +1,6 @@
 Rem
-	Maan - Main Engine
-	
+	Maan - Init
+	Core init stuff
 	
 	
 	
@@ -22,21 +22,19 @@ Rem
 	to the project the exceptions are needed for.
 Version: 17.02.07
 End Rem
-' empty script only set up to make sure the building script works
-
-' (The maan.icns file is present here, because I use a modified version of bmk myself which will automatically put the icon in the map bundle)
-
-
 Strict
-Framework MaxGui.Drivers
+Import "formcompiler.bmx"
 
-Import    "imp/init.bmx"
-Import    "imp/run.bmx"
+MKL_Version "Maan - init.bmx","17.02.07"
+MKL_Lic     "Maan - init.bmx","GNU General Public License 3"
 
-MKL_Version "Maan - maan.bmx","17.02.07"
-MKL_Lic     "Maan - maan.bmx","GNU General Public License 3"
 
-updateversion
-
-Init
-run
+Function init()
+        CSay "~n~n"+MKL_GetAllversions()+"~n~n"
+	GALE_ExitGadget.setshow Project.c("Console").tolower()="show"
+	GadgetToMaan Desktop(),"SYS_DESKTOP"
+	ByName("SYS_DESKTOP").gc="SYS_DESKTOP"
+	For Local f$ = EachIn project.c("StartForm").split(",")
+		compileform f
+	Next
+End Function

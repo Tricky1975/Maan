@@ -20,7 +20,7 @@ Rem
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.02.04
+Version: 17.02.07
 End Rem
 
 Strict
@@ -34,7 +34,7 @@ Import    jcr6.zlibdriver
 Import "bmp_versions.bmx"
 Import "bmp_make.bmx"
 
-MKL_Version "Maan - bmp.bmx","17.02.04"
+MKL_Version "Maan - bmp.bmx","17.02.07"
 MKL_Lic     "Maan - bmp.bmx","GNU General Public License 3"
 
 Global me$=StripAll(AppFile)
