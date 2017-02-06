@@ -20,7 +20,7 @@ Rem
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.02.07
+Version: 17.02.04
 End Rem
 Strict
 
@@ -29,7 +29,9 @@ Import "console.bmx"
 
 Include "gadgets.bmx"
 
-MKL_Version "Maan - globals.bmx","17.02.07"
+Incbin "maan_prior.lua"
+
+MKL_Version "Maan - globals.bmx","17.02.04"
 MKL_Lic     "Maan - globals.bmx","GNU General Public License 3"
 
 
@@ -67,7 +69,7 @@ If project.c("Title") AppTitle = project.c("Title")
 GALEMSJCR = JCR
 
 
-Global PriorScript$ 
+Global PriorScript$ = LoadString("incbin::maan_prior.lua")
 
 
 
