@@ -1,31 +1,7 @@
-Rem
-	Maan - Gadgets
-	How to handle gadgets
-	
-	
-	
-	(c) Jeroen P. Broks, 2017, All rights reserved
-	
-		This program is free software: you can redistribute it and/or modify
-		it under the terms of the GNU General Public License as published by
-		the Free Software Foundation, either version 3 of the License, or
-		(at your option) any later version.
-		
-		This program is distributed in the hope that it will be useful,
-		but WITHOUT ANY WARRANTY; without even the implied warranty of
-		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-		GNU General Public License for more details.
-		You should have received a copy of the GNU General Public License
-		along with this program.  If not, see <http://www.gnu.org/licenses/>.
-		
-	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
-	to the project the exceptions are needed for.
-Version: 17.02.07
-End Rem
 ' This file MUST be called by "include" and not by "import" as it needs some backwards call which can not be made through import.
 
-MKL_Version "Maan - gadgets.bmx","17.02.07"
-MKL_Lic     "Maan - gadgets.bmx","GNU General Public License 3"
+MKL_Version "Maan - console.bmx","17.02.04"
+MKL_Lic     "Maan - console.bmx","GNU General Public License 3"
 
 
 Global MaanClasses:TMap = New TMap
@@ -42,6 +18,7 @@ Function tbl$[](a$)
 		ret[0]=Trim(a[..p])
 		ret[1]=Trim(a[p+1..])
 	EndIf
+	Return ret
 End Function	
 
 
@@ -116,5 +93,26 @@ Type tgadLabel Extends tgadtemplate
 	End Method
 End Type	
 
+
 MapInsert maanclasses,"Label",New tgadlabel
 
+
+
+Type tgadbutton Extends tgadtemplate
+	Method Createme(G:TMaanGadget)
+		'GALE_Error "Well this cannot be done yet, but I will be able to create labels later :)"
+		Local caption$ = g.data.value("caption") If Not caption caption="Maan:> "+g.form+"."+g.id
+		Local parent:TGadget = ByName(g.parent).gadget
+		Local rflags$[] = g.data.value("flags").split(" ")
+		Local flags
+		For Local fl$=EachIn rflags
+			Select Upper(fl)
+				Case ""
+				Default		GALE_Error "Unknown button flag: "+fl
+			End Select
+		Next
+		g.gadget = CreateButton(caption,g.tx("x"),g.ty("y"),g.tx("width"),g.ty("height"),parent,flags)	
+	End Method
+End Type	
+
+MapInsert Maanclasses,"Button",New tgadbutton

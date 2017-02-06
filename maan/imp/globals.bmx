@@ -89,6 +89,7 @@ Type TMaanGadget
 		Local para$=pp[1]
 		Local k$=pp[0]
 		If p para:+";"+p
+		CSay "Calling from FORM_"+form+"; "+k+"_"+func+"    qid:"+id ' Debug line
 		GALE_MS_Run "FORM_"+form,k+"_"+func,para.split(";")
 	End Method
 	Method CreateMe()
