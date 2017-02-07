@@ -1,5 +1,5 @@
 Rem
-	Maan - Main Engine
+	Maan - Lua API
 	
 	
 	
@@ -22,22 +22,29 @@ Rem
 	to the project the exceptions are needed for.
 Version: 17.02.07
 End Rem
-' empty script only set up to make sure the building script works
-
-' (The maan.icns file is present here, because I use a modified version of bmk myself which will automatically put the icon in the map bundle)
-
-
 Strict
-Framework MaxGui.Drivers
 
-Import    "imp/init.bmx"
-Import    "imp/run.bmx"
-Import    "imp/lua.bmx"
+Import "globals.bmx"
 
-MKL_Version "Maan - maan.bmx","17.02.07"
-MKL_Lic     "Maan - maan.bmx","GNU General Public License 3"
+MKL_Version "Maan - lua.bmx","17.02.07"
+MKL_Lic     "Maan - lua.bmx","GNU General Public License 3"
 
-updateversion
 
-Init
-run
+Rem
+  This has been set up to allow Lua to communicate
+  with the underlying Maan Gadgets.
+   
+  It's not recommended to call these gadgets directly
+  but the use the functions calling them from the maan_prior.lua file
+  in stead, to ensure as much compatibility with future maan versions.
+End Rem
+
+Type MaanLuaAPI
+	Method gadget:tmaangadget(n$)
+		Return byname(n)
+	End Method
+
+End Type
+
+
+GALE_Register New MaanLuaAPI,"maan"
