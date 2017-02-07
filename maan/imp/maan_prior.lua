@@ -23,3 +23,15 @@ alert = Sys.Alert
 function CSay(msg)
     Console.Write(msg,255,255,255)
 end
+
+function boolint(a)
+    if a return 1 else return 0
+end
+
+function hvalue(a)
+    if a==nil or a==false or a==0 or a=="" then return false else return a end
+end
+
+function hbool(a)
+	if hvalue(a) then return true else return false
+end
