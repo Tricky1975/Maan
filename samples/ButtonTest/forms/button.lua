@@ -22,6 +22,8 @@ function GALE_OnLoad()
 end
 
 function KID_BUTTON_Button_Action(key)
+   times = (times or 0) + 1
+   MAAN_Text("FORM_Button","Button Test - Button hit: "..times)
    alert("Hey, you hit me!")
 end
 

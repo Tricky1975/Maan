@@ -43,8 +43,12 @@ Type MaanLuaAPI
 	Method gadget:tmaangadget(n$)
 		Return byname(n)
 	End Method
+	
+	Method STEXT(n$,t$)
+		SetGadgetText byname(n).gadget,t
+	End Method
 
 End Type
 
 
-GALE_Register New MaanLuaAPI,"maan"
+GALE_Register New MaanLuaAPI,"MAAN"

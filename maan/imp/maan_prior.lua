@@ -25,7 +25,7 @@ function CSay(msg)
 end
 
 function boolint(a)
-    if a return 1 else return 0
+    if a then return 1 else return 0 end
 end
 
 function hvalue(a)
@@ -33,5 +33,12 @@ function hvalue(a)
 end
 
 function hbool(a)
-	if hvalue(a) then return true else return false
+	if hvalue(a) then return true else return false end
+end
+
+function MAAN_Text(gadget,txt)
+	if txt then
+		MAAN.STEXT(gadget,txt)
+	end
+	return MAAN.gadget(gadget).Gadget.GetText()
 end
