@@ -76,6 +76,7 @@ Global PriorScript$ = LoadString("incbin::maan_prior.lua")
 
 Type TMaanGadget
 	Field gadget:TGadget
+	Field MyClass$
 	Field gc$
 	Field changed = True
 	Field parent$

@@ -80,6 +80,7 @@ Function CompileForm(form$)
 				w.id = currentgadid
 				w.form = form
 				w.gc = c
+				w.myclass=c
 				If MapContains(gadbyname,currentgadid) GALE_Error "Duplicate naming in line #"+cl
 				MapInsert gadbyname,currentgadid,w
 				CSay " = Created data record "+Lower(c)+" "+v+" as "+currentgadid
