@@ -9,6 +9,18 @@ fr=2
 fg=1
 fb=0
 kids
+  Panel MyPanel
+   r=$ff
+   g=$b4
+   b=$00
+   br=2
+   bg=1
+   bb=0
+   x=0
+   y=0
+   width=100%
+   height=100%
+   kids
     Button Button
      x=25%
      y=25
@@ -21,4 +33,5 @@ kids
      fr=2
      fg=1
      fb=0
+   end
 end
