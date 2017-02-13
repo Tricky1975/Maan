@@ -1,7 +1,7 @@
 --[[
   maan_prior.lua
   
-  version: 17.02.07
+  version: 17.02.13
   Copyright (C) 2017 Jeroen P. Broks
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages

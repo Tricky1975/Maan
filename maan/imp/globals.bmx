@@ -20,7 +20,7 @@ Rem
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.02.07
+Version: 17.02.13
 End Rem
 Strict
 
@@ -31,7 +31,7 @@ Include "gadgets.bmx"
 
 Incbin "maan_prior.lua"
 
-MKL_Version "Maan - globals.bmx","17.02.07"
+MKL_Version "Maan - globals.bmx","17.02.13"
 MKL_Lic     "Maan - globals.bmx","GNU General Public License 3"
 
 

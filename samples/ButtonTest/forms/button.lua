@@ -15,7 +15,7 @@ not longer than 70 years ago, you can deem this file
 with basically comes down to the same lack of
 restriction the public domain offers. (YAY!)
 *********************************************************** 
-Version 17.02.07
+Version 17.02.13
 ]]
 function GALE_OnLoad()
    CSay("You I'm here")
