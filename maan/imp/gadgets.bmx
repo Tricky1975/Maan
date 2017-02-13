@@ -184,9 +184,9 @@ Type tgadgettextfield Extends tgadtemplate
 		Local parent:TGadget = ByName(g.parent).gadget
 		Local flag; If G.data.value("password") flag=textfield_password
 		G.gadget = CreatePanel(g.tx("x"),g.ty("y"),g.tx("width"),g.ty("height"),parent)
-		If g.data.data.value("caption") SetGadgetText g.gadget,g.data.data.value("caption")
-		If g.data.data.value("default") SetGadgetText g.gadget,g.data.data.value("default")
-		If g.data.data.value("default") And g.data.data.value("caption") CSay "WARNING! Both caption and default set for textfield "+G.id+"! 'default' is dominant"
+		If g.data.value("caption") SetGadgetText g.gadget,g.data.value("caption")
+		If g.data.value("default") SetGadgetText g.gadget,g.data.value("default")
+		If g.data.value("default") And g.data.value("caption") CSay "WARNING! Both caption and default set for textfield "+G.id+"! 'default' is dominant"
 	End Method		
 End Type
 MapInsert maanclasses,"TextField",New tgadgettextfield
