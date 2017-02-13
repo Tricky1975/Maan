@@ -20,11 +20,11 @@ Rem
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.02.13
+Version: 17.02.07
 End Rem
 ' This file MUST be called by "include" and not by "import" as it needs some backwards call which can not be made through import.
 
-MKL_Version "Maan - gadgets.bmx","17.02.13"
+MKL_Version "Maan - gadgets.bmx","17.02.07"
 MKL_Lic     "Maan - gadgets.bmx","GNU General Public License 3"
 
 
@@ -183,7 +183,7 @@ Type tgadgettextfield Extends tgadtemplate
 	Method createme(G:TMaanGadget)
 		Local parent:TGadget = ByName(g.parent).gadget
 		Local flag; If G.data.value("password") flag=textfield_password
-		G.gadget = CreatePanel(g.tx("x"),g.ty("y"),g.tx("width"),g.ty("height"),parent)
+		G.gadget = CreateTextField(g.tx("x"),g.ty("y"),g.tx("width"),g.ty("height"),parent)
 		If g.data.value("caption") SetGadgetText g.gadget,g.data.value("caption")
 		If g.data.value("default") SetGadgetText g.gadget,g.data.value("default")
 		If g.data.value("default") And g.data.value("caption") CSay "WARNING! Both caption and default set for textfield "+G.id+"! 'default' is dominant"
