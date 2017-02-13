@@ -17,8 +17,11 @@
      misrepresented as being the original software.
   3. This notice may not be removed or altered from any source distribution.
 ]]
+
 alert = Sys.Alert
 
+
+ByName = MAAN.Gadget -- For use in this file only!
 
 function CSay(msg)
     Console.Write(msg,255,255,255)
@@ -41,4 +44,20 @@ function MAAN_Text(gadget,txt)
 		MAAN.STEXT(gadget,txt)
 	end
 	return MAAN.gadget(gadget).Gadget.GetText()
+end
+
+function MAAN_Foreground(gadget,r,g,b)
+	local g=MAAN.Gadget(gadget)
+	g.set('r',r)
+	g.set('g',g)
+	g.set('b',b)
+	g.ColorMe()
+end
+
+function MAAN_Background(gadget,r,g,b)
+	local g=MAAN.Gadget(gadget)
+	g.set('br',r)
+	g.set('bg',g)
+	g.set('bb',b)
+	g.ColorMe()
 end

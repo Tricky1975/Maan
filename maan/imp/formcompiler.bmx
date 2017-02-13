@@ -37,7 +37,10 @@ MKL_Lic     "Maan - formcompiler.bmx","GNU General Public License 3"
 Function CreateAllGadgets()
 	' Creates all gadgets but only if they do not exist yet.
 	For Local MG:TmaanGadget = EachIn gadorder
-		If Not MG.Gadget mg.createme; CSay " = Created gadget: "+mg.id; MapInsert gadbygad,mg.gadget,mg
+		If Not MG.Gadget 
+			mg.createme; CSay " = Created gadget: "+mg.id; MapInsert gadbygad,mg.gadget,mg
+			mg.colorme
+		EndIf
 	Next
 End Function
 
@@ -80,7 +83,7 @@ Function CompileForm(form$)
 				w.id = currentgadid
 				w.form = form
 				w.gc = c
-				w.myclass=c
+				'w.myclass=c
 				If MapContains(gadbyname,currentgadid) GALE_Error "Duplicate naming in line #"+cl
 				MapInsert gadbyname,currentgadid,w
 				CSay " = Created data record "+Lower(c)+" "+v+" as "+currentgadid

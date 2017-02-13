@@ -76,7 +76,7 @@ Global PriorScript$ = LoadString("incbin::maan_prior.lua")
 
 Type TMaanGadget
 	Field gadget:TGadget
-	Field MyClass$
+	'Field MyClass$
 	Field gc$
 	Field changed = True
 	Field parent$
@@ -97,6 +97,10 @@ Type TMaanGadget
 		Local a:TGadTemplate = GetTemplate(gc)
 		a.createme Self
 	End Method
+	Method Colorme()
+		Local a:TGadTemplate = GetTemplate(gc)
+		a.colorme Self
+	End Method
 	Method tx(a$)
 		Local c$=Trim(data.value(a))
 		Local r=c.toint()
@@ -113,6 +117,8 @@ Type TMaanGadget
 		EndIf
 		Return r
 	End Method		
+	Method get$(key$) Return data.value(key) End Method
+	Method set(key$,value$) MapInsert data,key,value End Method
 
 End Type
 

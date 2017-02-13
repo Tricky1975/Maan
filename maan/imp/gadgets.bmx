@@ -58,6 +58,19 @@ Type TGadTemplate
 	End Method
 	
 	Method CreateMe(g:tmaanGadget) Abstract
+	
+	Method ColorMe(G:tmaangadget)
+		'Local r,g,b
+		Local sr$=G.data.value("r")
+		Local sg$=g.data.value("g")
+		Local sb$=g.data.value("b")
+		If (sr And sg And sb) SetGadgetColor g.gadget,sr.toint(),sg.toint(),sb.toint(),False
+		sr$=G.data.value("br")
+		sg$=g.data.value("bg")
+		sb$=g.data.value("bb")
+		If (sr And sg And sb) SetGadgetColor g.gadget,sr.toint(),sg.toint(),sb.toint(),True
+	End Method
+		
 
 End Type
 
