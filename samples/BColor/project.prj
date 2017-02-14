@@ -1,0 +1,6 @@
+[vars]
+Title=Textfield test
+Author=Jeroen P. Broks
+Console=Show
+StartForm=Main
+exe=BColor

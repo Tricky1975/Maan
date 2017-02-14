@@ -1,0 +1,41 @@
+caption=BColor Test
+flags=CENTER TITLE
+width=500
+height=300
+kids
+   Panel Main
+     x=0
+     y=0
+     width=100%
+     height=100%
+     r=255
+     g=255
+     b=$ff
+     br=0
+     bg=0
+     bb=0
+     kids
+      TextField Voor
+       x=10
+       y=10
+       width=200
+       height=25
+      TextField Achter
+       x=10
+       y=45
+       width=200
+       height=25
+     Label Colors
+       caption=< S.A.M.P.L.E >
+       x=250
+       y=0
+       width=250
+       height=100%
+       r=255
+       g=255
+       b=$ff
+       br=0
+       bg=0
+       bb=0
+     end
+end
