@@ -47,17 +47,22 @@ function MAAN_Text(gadget,txt)
 end
 
 function MAAN_Foreground(gadget,r,g,b)
-	local g=MAAN.Gadget(gadget)
-	g.set('r',r)
-	g.set('g',g)
-	g.set('b',b)
-	g.ColorMe()
+	local gg=MAAN.Gadget(gadget)
+	gg.set('r',r)
+	gg.set('g',g)
+	gg.set('b',b)
+	gg.ColorMe()
 end
 
 function MAAN_Background(gadget,r,g,b)
-	local g=MAAN.Gadget(gadget)
-	g.set('br',r)
-	g.set('bg',g)
-	g.set('bb',b)
-	g.ColorMe()
+	local gg=MAAN.Gadget(gadget)
+	gg.set('br',r)
+	gg.set('bg',g)
+	gg.set('bb',b)
+	gg.ColorMe()
+end
+
+function debugdata(gadget) -- Debugging purposes only for this version of MAAN
+       local f = loadstring(MAAN.gData(gadget))
+       return f()
 end

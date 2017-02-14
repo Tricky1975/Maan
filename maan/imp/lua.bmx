@@ -47,8 +47,18 @@ Type MaanLuaAPI
 	End Method
 	
 	Method STEXT(n$,t$)
-		SetGadgetText byname(n).gadget,t
+		SetGadgetText gadget(n).gadget,t
 	End Method
+	
+	Method gData$(n$)
+		Local g:tmaangadget = gadget(n)
+		Local ret$
+		For Local k$=EachIn MapKeys(g.data)
+			If ret ret:+",~n"
+			ret:+"['"+k+"'] = '"+g.data.value(k)+"'"
+		Next
+		Return "return {"+ret+"}"
+	End Method	
 
 End Type
 

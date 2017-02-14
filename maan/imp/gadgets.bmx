@@ -20,11 +20,11 @@ Rem
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.02.14
+Version: 17.02.07
 End Rem
 ' This file MUST be called by "include" and not by "import" as it needs some backwards call which can not be made through import.
 
-MKL_Version "Maan - gadgets.bmx","17.02.14"
+MKL_Version "Maan - gadgets.bmx","17.02.07"
 MKL_Lic     "Maan - gadgets.bmx","GNU General Public License 3"
 
 
@@ -64,11 +64,11 @@ Type TGadTemplate
 		Local sr$=G.data.value("r")
 		Local sg$=g.data.value("g")
 		Local sb$=g.data.value("b")
-		If (sr And sg And sb) SetGadgetColor g.gadget,sr.toint(),sg.toint(),sb.toint(),False
+		If (sr And sg And sb) SetGadgetColor g.gadget,sr.toint(),sg.toint(),sb.toint(),False; CSay "Foreground "+sr+","+sg+","+sb
 		sr$=G.data.value("br")
 		sg$=g.data.value("bg")
 		sb$=g.data.value("bb")
-		If (sr And sg And sb) SetGadgetColor g.gadget,sr.toint(),sg.toint(),sb.toint(),True
+		If (sr And sg And sb) SetGadgetColor g.gadget,sr.toint(),sg.toint(),sb.toint(),True; CSay "Background "+sr+","+sg+","+sb
 	End Method
 		
 
