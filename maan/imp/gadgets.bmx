@@ -145,7 +145,7 @@ Type tgadbutton Extends tgadtemplate
 		Local flags
 		Select g.gc
 			Case "PushButton","Button"	flags = BUTTON_PUSH	
-			Case "CheckBox"			flags = BUTTON_CHECKBOX	
+			Case "CheckBox","Checkbox"	flags = BUTTON_CHECKBOX	
 			Case "Radio" 			flags = BUTTON_RADIO
 			Case "OkButton"			flags = BUTTON_OK
 			Case "CancelButton"		flags = BUTTON_CANCEL
@@ -166,6 +166,7 @@ End Type
 MapInsert Maanclasses,"Button",New tgadbutton
 MapInsert maanclasses,"PushButton",MapValueForKey(maanclasses,"Button")
 MapInsert maanclasses,"CheckBox",MapValueForKey(maanclasses,"Button")
+MapInsert maanclasses,"Checkbox",MapValueForKey(maanclasses,"Button")
 MapInsert maanclasses,"Radio",MapValueForKey(maanclasses,"Button")
 MapInsert maanclasses,"OkButton",MapValueForKey(maanclasses,"Button")
 MapInsert maanclasses,"CancelButton",MapValueForKey(maanclasses,"Button")

@@ -59,6 +59,8 @@ Type MaanLuaAPI
 		Next
 		Return "return {"+ret+"}"
 	End Method	
+	
+	Method State(n$) Return ButtonState(gadget(n).gadget) End Method
 
 End Type
 
