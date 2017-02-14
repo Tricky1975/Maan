@@ -141,20 +141,34 @@ Type tgadbutton Extends tgadtemplate
 		'GALE_Error "Well this cannot be done yet, but I will be able to create labels later :)"
 		Local caption$ = g.data.value("caption") If Not caption caption="Maan:> "+g.form+"."+g.id
 		Local parent:TGadget = ByName(g.parent).gadget
-		Local rflags$[] = g.data.value("flags").split(" ")
+		'Local rflags$[] = g.data.value("flags").split(" ")
 		Local flags
+		Select g.gc
+			Case "PushButton","Button"	flags = BUTTON_PUSH	
+			Case "CheckBox"			flags = BUTTON_CHECKBOX	
+			Case "Radio" 			flags = BUTTON_RADIO
+			Case "OkButton"			flags = BUTTON_OK
+			Case "CancelButton"		flags = BUTTON_CANCEL
+		EndSelect			
+		Rem	
 		For Local fl$=EachIn rflags
 			Select Upper(fl)
 				Case ""
 				Default		GALE_Error "Unknown button flag: "+fl
-			End Select
+			End Select			
 		Next
+		End Rem
 		g.gadget = CreateButton(caption,g.tx("x"),g.ty("y"),g.tx("width"),g.ty("height"),parent,flags)	
+		SetButtonState g.gadget,g.data.value("state").tolower()="checked"
 	End Method
 End Type	
 
 MapInsert Maanclasses,"Button",New tgadbutton
-
+MapInsert maanclasses,"PushButton",MapValueForKey(maanclasses,"Button")
+MapInsert maanclasses,"CheckBox",MapValueForKey(maanclasses,"Button")
+MapInsert maanclasses,"Radio",MapValueForKey(maanclasses,"Button")
+MapInsert maanclasses,"OkButton",MapValueForKey(maanclasses,"Button")
+MapInsert maanclasses,"CancelButton",MapValueForKey(maanclasses,"Button")
 
 Type tgadgetpanel Extends tgadtemplate
 	Method createme(G:TMaanGadget)
