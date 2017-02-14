@@ -62,6 +62,12 @@ function MAAN_Background(gadget,r,g,b)
 	gg.ColorMe()
 end
 
+function MAAN_Checked(gadget,value)
+     local g = MAAN.Gadget(gadget)
+     if value~=nil then g.Gadget.SetSelected(boolint(value)) end
+     return hbool(MAAN.State(gadget))
+end
+
 function debugdata(gadget) -- Debugging purposes only for this version of MAAN
        local f = loadstring(MAAN.gData(gadget))
        return f()
