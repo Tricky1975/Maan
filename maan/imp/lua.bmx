@@ -41,7 +41,9 @@ End Rem
 
 Type MaanLuaAPI
 	Method gadget:tmaangadget(n$)
-		Return byname(n)
+		Local ret:tmaangadget = byname(n)
+		If Not ret GALE_Error "Gadget "+n+" not found!"
+		Return ret
 	End Method
 	
 	Method STEXT(n$,t$)
