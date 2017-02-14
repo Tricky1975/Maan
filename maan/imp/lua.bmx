@@ -20,13 +20,13 @@ Rem
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.02.13
+Version: 17.02.14
 End Rem
 Strict
 
 Import "globals.bmx"
 
-MKL_Version "Maan - lua.bmx","17.02.13"
+MKL_Version "Maan - lua.bmx","17.02.14"
 MKL_Lic     "Maan - lua.bmx","GNU General Public License 3"
 
 
