@@ -1,0 +1,24 @@
+width=90%
+height=200
+flags=TITLE CENTER
+caption=Radio Check
+kids
+    Checkbox B#One
+       width=75%
+       height=25
+       y=0
+       caption=One
+    Checkbox B#Two
+       width=75%
+       height=25
+       y=30
+       caption=Two
+    Checkbox B#Three
+       width=75%
+       height=25
+       y=60
+       caption=Three
+       state=checked
+end
+
+      
