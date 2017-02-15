@@ -20,12 +20,12 @@ Rem
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.02.13
+Version: 17.02.15
 End Rem
 Strict
 Import "globals.bmx"
 
-MKL_Version "Maan - formcompiler.bmx","17.02.13"
+MKL_Version "Maan - formcompiler.bmx","17.02.15"
 MKL_Lic     "Maan - formcompiler.bmx","GNU General Public License 3"
 
 
@@ -40,6 +40,7 @@ Function CreateAllGadgets()
 		If Not MG.Gadget 
 			mg.createme; CSay " = Created gadget: "+mg.id; MapInsert gadbygad,mg.gadget,mg
 			mg.colorme
+			For Local item$=EachIn mg.startitems AddGadgetItem mg.gadget,item Next
 		EndIf
 	Next
 End Function
@@ -66,7 +67,9 @@ Function CompileForm(form$)
 		If line And Chr(line[0])<>"#" And (Not Prefixed(line,"--"))
 			pis = line.find("=")
 			sis = line.find(" ")
-			If pis>-1 Then
+			If Prefixed(line,"item ")
+				ListAddLast w.startitems,line[5..]
+			ElseIf pis>-1 Then
 				Local k$=line[..pis]
 				Local v$=line[pis+1..]
 				If Not k GALE_Error "No variable in line #"+cl

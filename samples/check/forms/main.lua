@@ -15,7 +15,7 @@ not longer than 70 years ago, you can deem this file
 with basically comes down to the same lack of
 restriction the public domain offers. (YAY!)
 *********************************************************** 
-Version 17.02.14
+Version 17.02.15
 ]]
 ch = { [true]='checked', [false]='unchecked' }
 
