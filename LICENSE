@@ -1,3 +1,5 @@
+(A few extra notes are at the bottom of this document).
+
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007
 
@@ -672,3 +674,34 @@ may consider it more useful to permit linking proprietary applications with
 the library.  If this is what you want to do, use the GNU Lesser General
 Public License instead of this License.  But first, please read
 <http://www.gnu.org/philosophy/why-not-lgpl.html>.
+
+
+
+
+
+=========
+
+
+A few extra notes:
+(These notes are rather a few extra explanations for you and not really
+for court, or something).
+
+
+In this particular case the GNU General Public license only applies to
+those files used to compile Maan itself. That is its engine and its
+builder. The Lua scripts used to build an actual application in Maan
+are considered as "The Data" and may therefore use any license you
+desire, even close-sourced commercial licensees, under the condition
+that modifications to Maan are always available in the open-source 
+under the terms of this license.
+
+
+Of course if you use Lua scripts licensed under the GNU General Public
+License by themselves, the license will then apply for the entire app,
+as your scripts may be considered "the data" for Maan itself, but not
+for these specific Lua scripts. 
+
+If you want to create a "dependency" for Maan applications and you
+don't want the applications calling it to be obligated to become
+GNU/GPL licensed, you can as stated in the original text of this document
+always decide to use the "Lesser General Public License" in stead.
