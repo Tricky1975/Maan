@@ -1,0 +1,6 @@
+[vars]
+Title=Listboxes
+Author=Jeroen P. Broks
+Console=Show
+StartForm=main
+exe=ListBoxes

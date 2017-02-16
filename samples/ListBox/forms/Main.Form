@@ -1,0 +1,19 @@
+caption=listboxes
+flags=TITLE CENTER
+width=25%
+height=25%
+kids
+ ListBox MyListBox
+     x=0
+     y=0
+     width=100%
+     height=100%
+     item Dog
+     item Cat
+     item Bird
+     item Hippo
+     item Wolf
+     item Horse
+     item Lion
+     item Fish
+end
