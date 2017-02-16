@@ -20,12 +20,12 @@ Rem
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.02.15
+Version: 17.02.16
 End Rem
 Strict
 Import "globals.bmx"
 
-MKL_Version "Maan - formcompiler.bmx","17.02.15"
+MKL_Version "Maan - formcompiler.bmx","17.02.16"
 MKL_Lic     "Maan - formcompiler.bmx","GNU General Public License 3"
 
 
@@ -36,6 +36,7 @@ MKL_Lic     "Maan - formcompiler.bmx","GNU General Public License 3"
 
 Function CreateAllGadgets()
 	' Creates all gadgets but only if they do not exist yet.
+	CSay "Creating Gadgets"
 	For Local MG:TmaanGadget = EachIn gadorder
 		If Not MG.Gadget 
 			mg.createme; CSay " = Created gadget: "+mg.id; MapInsert gadbygad,mg.gadget,mg
@@ -43,6 +44,7 @@ Function CreateAllGadgets()
 			For Local item$=EachIn mg.startitems AddGadgetItem mg.gadget,item Next
 		EndIf
 	Next
+	csay "Creation complete"
 End Function
 
 Function CompileForm(form$)

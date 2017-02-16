@@ -20,11 +20,11 @@ Rem
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.02.15
+Version: 17.02.16
 End Rem
 ' This file MUST be called by "include" and not by "import" as it needs some backwards call which can not be made through import.
 
-MKL_Version "Maan - gadgets.bmx","17.02.15"
+MKL_Version "Maan - gadgets.bmx","17.02.16"
 MKL_Lic     "Maan - gadgets.bmx","GNU General Public License 3"
 
 
@@ -80,7 +80,13 @@ End Type
 
 Function GetTemplate:TGadTemplate(c$)
 	Local ret:TGadTemplate = TGadTemplate(MapValueForKey(maanclasses,c))
-	If Not ret GALE_Error "Class "+c+" does not exist"
+	If Not ret 
+		If MapContains(maanclasses,c)  
+			GALE_Error "Illegal data on class "+c
+		Else
+			GALE_Error "Class "+c+" does not exist"
+		EndIf
+	EndIf	
 	Return ret
 End Function
 
@@ -214,11 +220,11 @@ MapInsert maanclasses,"TextField",New tgadgettextfield
 Type tgadlistbox Extends tgadtemplate
 	Method action(id$)
 		Local g:TMaangadget = ByName(id)
-		g.call "SelectDouble",id+";"+SelectedGadgetItem(g.gadget)
+		g.call "SelectDouble",id,SelectedGadgetItem(g.gadget)
 	End Method
 	Method selectg(id$)	
 		Local g:TMaangadget = ByName(id)
-		g.call "SelectSingle",id+";"+SelectedGadgetItem(g.gadget)
+		g.call "SelectSingle",id,SelectedGadgetItem(g.gadget)
 	End Method
 	Method createme(G:TMaanGadget)
 		Local parent:TGadget = ByName(g.parent).gadget

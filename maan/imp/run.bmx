@@ -20,12 +20,12 @@ Rem
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.02.07
+Version: 17.02.16
 End Rem
 Strict
 Import "globals.bmx"
 
-MKL_Version "Maan - run.bmx","17.02.07"
+MKL_Version "Maan - run.bmx","17.02.16"
 MKL_Lic     "Maan - run.bmx","GNU General Public License 3"
 
 
@@ -36,6 +36,8 @@ Private
 
 Public
 	Function Run()
+		PollEvent
+		CSay "Init done... Everything will now be run"
 		Repeat
 			PollEvent
 			eid = EventID()
@@ -43,9 +45,20 @@ Public
 			If eid=event_windowclose And esource=GALE_ExitGadget End
 			Select eid
 				Case event_gadgetaction
-					GetTemplate(bygad(esource).gc).action bygad(esource).id
+					GetTemplate(bygad(esource).gc).action  bygad(esource).id
+				Case event_gadgetselect
+					'If esource CSay "We got a source "+bygad(esource).id									 	
+					Local g:tmaangadget = bygad(esource)
+					If g	
+						If Not MapContains(MaanClasses,g.gc)
+							CSay "WARNING! Call to non-existent class "' +g.gc+" in select-event
+						Else
+							CSay "Existing so let's go!"
+							GetTemplate(g.gc).selectg g.id
+						EndIf	
+					EndIf	
 				Case event_windowclose	
-					GetTemplate(bygad(esource).gc).close bygad(esource).id
+					GetTemplate(bygad(esource).gc).close   bygad(esource).id
 			End Select
 		Forever
 	End Function

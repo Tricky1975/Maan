@@ -20,7 +20,7 @@ Rem
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.02.15
+Version: 17.02.16
 End Rem
 Strict
 
@@ -31,7 +31,7 @@ Include "gadgets.bmx"
 
 Incbin "maan_prior.lua"
 
-MKL_Version "Maan - globals.bmx","17.02.15"
+MKL_Version "Maan - globals.bmx","17.02.16"
 MKL_Lic     "Maan - globals.bmx","GNU General Public License 3"
 
 
@@ -82,7 +82,7 @@ Type TMaanGadget
 	Field parent$
 	Field data:StringMap = New StringMap
 	Field kids:TList = New TList
-	Field startitems:TList = New Tlist
+	Field startitems:TList = New TList
 	Field NoUpdates
 	Field ID$	
 	Field form$
