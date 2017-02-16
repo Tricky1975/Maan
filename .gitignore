@@ -11,6 +11,9 @@ MKL_Backup
 
 # BlitzMax compilation shit
 .bmx
+.settings
+.project
+.buildpath
 
 # MacOS X shit
 .DS_Store
