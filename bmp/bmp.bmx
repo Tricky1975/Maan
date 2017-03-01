@@ -65,8 +65,8 @@ If (Len AppArgs)<2
 			Local pp$=StripExt(Right(p,Len(p)-5))
 			Print Left(" -p:"+pp+"             ",20)+" -- Build for Mac"
 		EndIf
-		Print Left(" -d:<dir>            ",20)+" -- set up the target folder for the application"
 	Next	
+	Print Left(" -d:<dir>            ",20)+" -- set up the target folder for the application"
 	Print
 	Print "If not platform has been defined, the system will only build for "+platform
 	End
