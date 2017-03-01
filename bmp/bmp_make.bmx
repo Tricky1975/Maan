@@ -131,9 +131,15 @@ Function Output(platform$)
 			JCR_Extract j,e.filename,outputdir+Dirry(f),True
 			If FileType(outputdir+Dirry(f)) Print "Ok" Else Print "Failed"
 		End If
-	CreateDir outputdir+ExtractDir(outputdir+Dirry(i.c("resout")))
-	If Not CopyFile(swapjcr,outputdir+Dirry(i.c("resout"))) Print "= Resource could not be properly copied to: "+outputdir+Dirry(i.c("resout")) Return
+		CreateDir outputdir+ExtractDir(outputdir+Dirry(i.c("resout")))
+		If Not CopyFile(swapjcr,outputdir+Dirry(i.c("resout"))) Print "= Resource could not be properly copied to: "+outputdir+Dirry(i.c("resout")) Return	
 	Next
+	For Local fv$=EachIn i.EachVar()
+		If Prefixed(fv,"FILE.") And projectini.c(fv)
+			WriteStdout "= Copying "+fv+": "+projectini.c(fv)+ " ... "
+			If CopyFile(projectini.c(fv),Dirry(i.c(fv))) Print "Ok" Else Print "Failed"
+		EndIf
+	Next	
 End Function
 
 Function iOutput()
