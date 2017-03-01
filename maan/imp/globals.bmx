@@ -102,6 +102,11 @@ Type TMaanGadget
 		Local a:TGadTemplate = GetTemplate(gc)
 		a.colorme Self
 	End Method
+	Method pictureme()
+		Local a:TGadTemplate = GetTemplate(gc)
+		a.pictureme Self
+	End Method
+	
 	Method tx(a$)
 		Local c$=Trim(data.value(a))
 		Local r=c.toint()

@@ -41,6 +41,7 @@ Function CreateAllGadgets()
 		If Not MG.Gadget 
 			mg.createme; CSay " = Created gadget: "+mg.id; MapInsert gadbygad,mg.gadget,mg
 			mg.colorme
+			mg.pictureme
 			For Local item$=EachIn mg.startitems AddGadgetItem mg.gadget,item Next
 		EndIf
 	Next

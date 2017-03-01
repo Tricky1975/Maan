@@ -74,7 +74,59 @@ Type TGadTemplate
 		sb$=g.data.value("bb")
 		If (sr And sg And sb) SetGadgetColor g.gadget,sr.toint(),sg.toint(),sb.toint(),True; CSay "Background "+sr+","+sg+","+sb
 	End Method
-		
+	
+	Method PictureMe(G:TMaanGadget)
+		Local aflags$[] = g.data.value("picflags").split(" ")
+		Local pic$ = g.data.value("pic")
+		Local source$ = g.data.value("picsource"); If Not source source="*ME*"
+		Local pixmap:TPixmap
+		If Not pic Return
+		CSay " = Adding picture from source ~q"+source+"~q, file ~q"+pic+"~q to Gadget: "+G.id
+		Select source.toupper()
+			Case "*REAL*"
+				pic = Dirry(pic)
+				pixmap = LoadPixmap(pic)
+				If Not pixmap CSay("WARNING! File "+pic+" has not been found in your file system")
+			Case "","*ME*"
+				pixmap = LoadPixmap(JCR_B(JCR,pic))
+				If Not pixmap CSay("WARNING! File "+pic+" has not been found in the maan resource")
+			Default
+				source = Dirry(source)
+				pixmap = LoadPixmap(JCR_B(source,pic))
+				If Not pixmap CSay("WARNING! File "+pic+" could not be accessed from resouce:"+source)
+		End Select
+		If Not pixmap Return
+		Local flags = -1
+		For Local f$=EachIn aflags	
+			If flags<0 flags=0
+			If GadgetClass(g.gadget)=gadget_panel		
+				Select Upper(f)
+					Case "TILE","TILES","TILED"
+						flags:|PANELPIXMAP_TILE
+					Case "CENTER"	
+						flags:|PANELPIXMAP_CENTER	
+					Case "FIT"
+						flags:|PANELPIXMAP_FIT	
+					Case "FIT2"
+						flags:|PANELPIXMAP_FIT2
+					Case "STRECH"
+						flags:|PANELPIXMAP_STRETCH		
+					Default
+						CSay "WARNING! Unknown picture flag for the use in a "+g.gc+" ("+f+")"
+				End Select
+			ElseIf GadgetClass(g.gadget)=gadget_button Or GadgetClass(g.gadget)=gadget_menuitem
+				flags:|GADGETPIXMAP_ICON
+				Select Upper(f)
+					Case "NOTEXT"	flags	:|	GADGETPIXMAP_ICON	
+					Default	CSay"WARNING! Unknown picture flag for the use in a "+g.gc+" ("+f+")"
+				End Select
+			Else
+				flags=-1	
+			EndIf			
+		Next	
+		If flags<0 CSay("WARNING! Unable to attach a picture to your "+Lower(g.gc)+":"+g.id+"~nEither this class doesn't support pictures or your flags are not properly set"); Return
+		SetGadgetPixmap g.gadget,pixmap,flags								
+	End Method	
 
 End Type
 
