@@ -60,6 +60,13 @@ Type MaanLuaAPI
 		Return "return {"+ret+"}"
 	End Method	
 	
+	Method IText$(N$,i=-1) ',t$="",change=0)
+		Local g:tmaangadget = gadget(n)
+		Local item = i; If item<=-1 item=SelectedGadgetItem(g.gadget)
+		If item<=-1 Return
+		Return GadgetItemText(g.gadget,item)
+	End method
+	
 	Method State(n$) Return ButtonState(gadget(n).gadget) End Method
 
 End Type

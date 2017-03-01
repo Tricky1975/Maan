@@ -233,3 +233,39 @@ Type tgadlistbox Extends tgadtemplate
 	EndMethod
 End Type
 MapInsert maanclasses,"ListBox",New tgadlistbox
+
+Type tgadtabber Extends TGadTemplate
+	Method action(id$)
+		Local i
+		Local g:TMaanGadget = ByName(ID)
+		Local sg:TMaanGadget
+		For i=0 Until CountGadgetItems(	g.gadget)
+			sg = byname("TAB_"+id+"__TAB#"+i)
+			If Not sg GALE_Error "No access to: "+"TAB_"+id+"__TAB#"+i
+			sg.gadget.setshow i=SelectedGadgetItem(g.gadget)
+			'CSay "Setshow: "+g.id+" "+Int(i=SelectedGadgetItem(g.gadget))
+		Next
+	End Method
+	Method selectg(id$)
+		action id 
+	End Method	
+	Method createme(G:TMaanGadget)
+		Local parent:TGadget = ByName(g.parent).gadget
+		'Local flag; If G.data.value("password") flag=textfield_passwor
+		G.gadget = CreateTabber(g.tx("x"),g.ty("y"),g.tx("width"),g.ty("height"),parent)
+	End Method	
+	
+End Type
+MapInsert maanclasses,"Tabber",New tgadtabber
+
+Type tgadtab Extends TGadtemplate
+	Method createme(G:TMaanGadget)
+		Local P:TMaangadget = byname(G.parent)
+		g.gadget = CreatePanel(0,0,ClientWidth(P.gadget),ClientHeight(P.gadget),P.gadget)
+		AddGadgetItem P.Gadget,g.data.value("caption")
+		CSay " = Added tab ~q"+g.data.value("caption")+" to tabber: "+P.id
+		CSay " = Visibility update for : "+g.parent
+		tgadtabber(MapValueForKey(maanclasses,"Tabber")).action g.parent
+	End Method
+End Type
+MapInsert maanclasses,"Tab",New tgadtab

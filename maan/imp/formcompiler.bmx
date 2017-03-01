@@ -71,6 +71,24 @@ Function CompileForm(form$)
 			sis = line.find(" ")
 			If Prefixed(line,"item ")
 				ListAddLast w.startitems,line[5..]
+			ElseIf Prefixed(line,"tab ")
+				Local pg:Tmaangadget = byname(curparent)
+				CSay "Tab ~q"+line[4..]+"~q for "+curparent
+				If pg.gc<>"Tabber" GALE_Error "Tabs may only be kids to a tabber and not a "+pg.gc
+				w = New TMaanGadget
+				Local i=-1
+				Local cid$
+				Repeat
+					i:+1
+					cid = "TAB_"+curparent+"__TAB#"+i
+				Until Not MapContains(gadbyname,cid)
+				w.id = cid
+				w.parent=curparent
+				MapInsert w.data,"caption", line[4..]
+				w.gc="Tab"
+				currentgadid=cid
+				ListAddLast gadorder,w
+				MapInsert gadbyname,cid,w
 			ElseIf pis>-1 Then
 				Local k$=line[..pis]
 				Local v$=line[pis+1..]
@@ -96,10 +114,20 @@ Function CompileForm(form$)
 				Select line
 					Case "kids","children"
 						curparent=currentgadid
+						CSay " = Kids for: "+currentgadid+" ("+curparent+")"
 					Case "end","endkids","endchildren"
 						If curparent="SYS_DESKTOP" GALE_Error "No kids group to end in line #"+cl
 						Local p$ = curparent
 						curparent = byname(p).parent
+						CSay " = Kids sequence ended, back to parent: "+curparent
+						If Left(curparent,1)="/"
+							CSay("Internal error!")
+							For Local k$=EachIn(MapKeys(gadbyname))
+								CSay K+" has parent: "+byname(k).parent
+							Next
+						GALE_Error "Internal error"	
+						EndIf
+							
 					Default
 						GALE_Error "I don't understand line #"+cl
 				End Select

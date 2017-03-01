@@ -62,6 +62,10 @@ function MAAN_Background(gadget,r,g,b)
 	gg.ColorMe()
 end
 
+function MAAN_ItemText(gadget,item)
+	return MAAN.IText(gadget,item or -1)
+end
+
 function MAAN_Checked(gadget,value)
      local g = MAAN.Gadget(gadget)
      if value~=nil then g.Gadget.SetSelected(boolint(value)) end
