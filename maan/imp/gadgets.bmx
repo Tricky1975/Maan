@@ -20,11 +20,11 @@ Rem
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.02.16
+Version: 17.03.02
 End Rem
 ' This file MUST be called by "include" and not by "import" as it needs some backwards call which can not be made through import.
 
-MKL_Version "Maan - gadgets.bmx","17.02.16"
+MKL_Version "Maan - gadgets.bmx","17.03.02"
 MKL_Lic     "Maan - gadgets.bmx","GNU General Public License 3"
 
 

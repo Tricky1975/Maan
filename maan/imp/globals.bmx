@@ -20,7 +20,7 @@ Rem
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.02.16
+Version: 17.03.02
 End Rem
 Strict
 
@@ -31,7 +31,7 @@ Include "gadgets.bmx"
 
 Incbin "maan_prior.lua"
 
-MKL_Version "Maan - globals.bmx","17.02.16"
+MKL_Version "Maan - globals.bmx","17.03.02"
 MKL_Lic     "Maan - globals.bmx","GNU General Public License 3"
 
 
@@ -112,6 +112,8 @@ Type TMaanGadget
 		Local r=c.toint()
 		If Suffixed(c,"%")
 			r = Floor( Double(ClientWidth(ByName(parent).Gadget)) * Double(Double(Left(c,Len(c)-1).todouble()/100)))
+		ElseIf Suffixed(c,"-")
+			r = ClientWidth(byname(parent).gadget) - Int(Int(	Left(c,Len(c)-1).todouble()))
 		EndIf
 		Return r
 	End Method		
@@ -120,6 +122,8 @@ Type TMaanGadget
 		Local r=c.toint()
 		If Suffixed(c,"%")
 			r = Floor(Double(ClientHeight(ByName(parent).Gadget)) * Double(Double(Left(c,Len(c)-1).todouble()/100)))
+		ElseIf Suffixed(c,"-")
+			r = ClientHeight(byname(parent).gadget) - Int(Int(	Left(c,Len(c)-1).todouble()))
 		EndIf
 		Return r
 	End Method		
