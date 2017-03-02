@@ -72,7 +72,8 @@ GALEMSJCR = JCR
 Global PriorScript$ = LoadString("incbin::maan_prior.lua")
 
 
-
+Global Mrc:StringMap = New StringMap
+MapInsert mrc,"MAAN_VERSION",MKL_NewestVersion()
 
 Type TMaanGadget
 	Field gadget:TGadget
@@ -129,6 +130,15 @@ Type TMaanGadget
 	End Method		
 	Method get$(key$) Return data.value(key) End Method
 	Method set(key$,value$) MapInsert data,key,value End Method
+	Method recaption()
+		Local g$=data.value("caption")
+		Local k$
+		For k=EachIn MapKeys(mrc)
+			g=Replace(g,"{"+k+"}",mrc.value(k))
+		Next
+		set "caption",g
+	End Method
+		
 
 End Type
 

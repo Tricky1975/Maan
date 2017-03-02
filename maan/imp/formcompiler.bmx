@@ -39,6 +39,7 @@ Function CreateAllGadgets()
 	CSay "Creating Gadgets"
 	For Local MG:TmaanGadget = EachIn gadorder
 		If Not MG.Gadget 
+			mg.recaption
 			mg.createme; CSay " = Created gadget: "+mg.id; MapInsert gadbygad,mg.gadget,mg
 			mg.colorme
 			mg.pictureme

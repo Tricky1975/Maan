@@ -42,6 +42,7 @@ end
 function MAAN_Text(gadget,txt)
 	if txt then
 		MAAN.STEXT(gadget,txt)
+		MAAN.gadget(gadget).recaption()
 	end
 	return MAAN.gadget(gadget).Gadget.GetText()
 end
