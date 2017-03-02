@@ -121,12 +121,21 @@ Function Output(platform$)
 	Local o$=i.c("exeori")
 	Local t$=i.c("exeout")
 	Local f$
+	Local there$,here$,skip
 	For e=EachIn MapValues(J.entries)
 		'Print e.filename+Prefixed(e.filename,"ext/")
 		If Prefixed(e.filename,"ext/")
 			f = Right(e.filename,(Len(e.filename))-4)
 			f = Replace(f,o,t)
-			WriteStdout "= Extracting "+e.filename+" to "+outputdir+Dirry(f)+" ... "
+			skip=False
+			If FileType(outputdir+Dirry(f))
+				there=LoadString(outputdir+Dirry(f))
+				here=LoadString(JCR_B(j,e.filename))
+				skip = skip Or there=here 
+			EndIf
+			If Not skip	
+				WriteStdout "= Extracting "+e.filename+" to "+outputdir+Dirry(f)+" ... "
+			endif	
 			CreateDir outputdir+ExtractDir(Dirry(f)),1
 			JCR_Extract j,e.filename,outputdir+Dirry(f),True
 			If FileType(outputdir+Dirry(f)) Print "Ok" Else Print "Failed"
