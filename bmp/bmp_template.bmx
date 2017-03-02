@@ -30,6 +30,7 @@ Import tricky_units.prefixsuffix
 Import tricky_units.initfile2
 Import jcr6.zlibdriver
 Import jcr6.realdir
+Import tricky_units.advdatetime
 
 MKL_Version "Maan - bmp_template.bmx","17.02.07"
 MKL_Lic     "Maan - bmp_template.bmx","GNU General Public License 3"
