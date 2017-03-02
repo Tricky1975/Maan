@@ -20,7 +20,7 @@ Rem
 		
 	Exceptions to the standard GNU license are available with Jeroen's written permission given prior 
 	to the project the exceptions are needed for.
-Version: 17.02.07
+Version: 17.03.02
 End Rem
 Strict
 
@@ -32,7 +32,7 @@ Import jcr6.zlibdriver
 Import jcr6.realdir
 Import tricky_units.advdatetime
 
-MKL_Version "Maan - bmp_template.bmx","17.02.07"
+MKL_Version "Maan - bmp_template.bmx","17.03.02"
 MKL_Lic     "Maan - bmp_template.bmx","GNU General Public License 3"
 
 

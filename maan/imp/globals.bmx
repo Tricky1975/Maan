@@ -74,6 +74,11 @@ Global PriorScript$ = LoadString("incbin::maan_prior.lua")
 
 Global Mrc:StringMap = New StringMap
 MapInsert mrc,"MAAN_VERSION",MKL_NewestVersion()
+MapInsert mrc,"PROJECT_TITLE",project.c("Title")
+For Local L$=EachIn Listfile(JCR_B(JCR,"BuildData"))
+	Local p=l.find("=")
+	MapInsert mrc,"MAAN_BMP_"+Upper(Trim(l[..p])),Trim(l[p+1..])
+Next
 
 Type TMaanGadget
 	Field gadget:TGadget
