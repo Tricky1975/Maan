@@ -65,9 +65,13 @@ Type MaanLuaAPI
 		Local item = i; If item<=-1 item=SelectedGadgetItem(g.gadget)
 		If item<=-1 Return
 		Return GadgetItemText(g.gadget,item)
-	End method
+	End Method
 	
 	Method State(n$) Return ButtonState(gadget(n).gadget) End Method
+	
+	Method JCRPatch(f$,path$,sig$)
+		JCR_AddPatch JCR,f,sig,path
+	End method
 
 End Type
 

@@ -77,3 +77,18 @@ function debugdata(gadget) -- Debugging purposes only for this version of MAAN
        local f = loadstring(MAAN.gData(gadget))
        return f()
 end
+
+function MAAN_Patch(file,path,requiresignature)
+	MAAN.JCRPatch(file,path,requiresignature)
+end
+
+function MAAN_SetPic(gadget,picfile,flags,source)
+	local g = MAAN.Gadget(gadget)
+	g.Set("pic",picfile)
+	g.Set("picsource",source or "*ME*")
+	g.Set("picflags",flags)
+	g.PictureMe()
+end	
+	
+	
+	
