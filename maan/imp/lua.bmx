@@ -71,7 +71,62 @@ Type MaanLuaAPI
 	
 	Method JCRPatch(f$,path$,sig$)
 		JCR_AddPatch JCR,f,sig,path
-	End method
+	End Method
+	
+	Field Temphidden:TList
+	Method TempHide()
+		If Temphidden GALE_Error "You may only use the hide function once. Unhide first before using it again!"
+		Temphidden = New TList
+		For Local MG:Tmaangadget = EachIn GadOrder
+			If (Not MG.Hidden ) And MG.gc="Window"
+				ListAddLast temphidden,MG
+				MG.gadget.SetShow False
+			EndIf
+		Next
+	End Method
+	Method TempIsHidden()
+		Return TempHidden<>Null
+	End Method
+	Method TempUnHide()
+		If Not Temphidden GALE_Error "You can't unhide what was never hidden in the first place."
+		For Local MG:Tmaangadget = EachIn TempHidden
+			MG.gadget.SetShow True
+		Next
+		temphidden=Null
+	End Method
+	
+	
+	Method Input$(Question$,DefaultString$,AllowCancel,AllowCharacters$)
+		TempHide
+		CSay "Requesting input from user"
+		Local ret$ = MaxGUI_Input(Question$,DefaultString$,AllowCancel,AllowCharacters$)
+		TempUnHide
+		Return ret
+	End Method
+	
+	Method SaveForm(Form$)	
+		If Form = "*ALL*"
+			'Local G:tMaanGadget = ByName("SYS_DESKTOP")
+			For Local G:tMaanGadget = EachIn gadorder 
+				If Prefixed(G.ID,"FORM_") SaveForm G.ID 
+			Next
+			Return
+		EndIf
+		Local sd$ = Dirry(project.c("formsavedir")) If Not sd Return
+		If Not CreateDir(sd,1) 
+			CSay "WARNING! I cannot save any data, since I could not create output dir: "+sd
+			Return
+		EndIf
+		Local S:TLua = GALE_GetScript(form)
+		SaveString S.Save("SAVE"),sd+"/"+form+".lua"			
+	End Method
+	
+	Method Bye()
+		SaveForm "*ALL*"
+		End
+	End Method
+	
+ 	Field UName$=StripDir(Dirry("$Home$"))
 
 End Type
 

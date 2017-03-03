@@ -139,6 +139,9 @@ Function CompileForm(form$)
 	' And now put this all into "reality"
 	CreateAllGadgets
 	Local savedvar$
+	Local savedvarfile$ = Dirry(project.c("formsavedir"))+"/FORM_"+form+".lua"
+	CSay "Saved variables: "+savedvarfile
+	If FileType(savedvarfile) savedvar=LoadString(savedvarfile)
 	Local s:TLua = GALE_LoadScript(jcr,"Forms/"+form+".lua",savedvar,priorscript)
 	If Not s GALE_Error "Sorry, compilation failed!"
 	GALE_AddScript "FORM_"+form,s

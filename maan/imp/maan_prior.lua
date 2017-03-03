@@ -89,6 +89,12 @@ function MAAN_SetPic(gadget,picfile,flags,source)
 	g.Set("picflags",flags)
 	g.PictureMe()
 end	
+
+MAAN_Input = MAAN.Input
+
+function MAAN_SYS_UserName() return MAAN.UName end
+
+Bye=MAAN.Bye
 	
 	
 	

@@ -92,6 +92,7 @@ Type TMaanGadget
 	Field NoUpdates
 	Field ID$	
 	Field form$
+	Field hidden
 	Method Call(func$,id$,p$="")
 		Local pp$[]=tbl(id)		
 		Local para$=pp[1]
