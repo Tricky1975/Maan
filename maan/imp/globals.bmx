@@ -45,7 +45,7 @@ Private
 
 Public
 Global JCRMain$ = StripExt(macfile)+".app/Contents/Resources/"+StripAll(Macfile)
-?windows
+?win32
 Global JCRMain$ = AppDir + StripAll(AppFile)
 ?linux
 Global JCRMain$ = AppDir + StripDir(AppFile)

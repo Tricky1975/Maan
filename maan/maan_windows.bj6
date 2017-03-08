@@ -1,0 +1,10 @@
+# Instruct file
+
+FATSTORAGE:zlib
+
+FILE:maan.exe
+TARGET:ext
+Storage:zlib
+FILE:maan_windows.ini
+TARGET:ini/maan.ini
+Storage:zlib
