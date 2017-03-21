@@ -65,7 +65,7 @@ Function CheckSwitches()
 	If Not outputdir outputdir="."
 	outputdir = Replace(outputdir,"\","/")
 	?win32
-	If (Not (Len(outputdir)=2 And Right(outputdir,2)=":")) And Right(outputdir,1)<>"/" outputdir:+"/"
+	If (Not (Len(outputdir)=2 And Right(outputdir))=":") And Right(outputdir,1)<>"/" outputdir:+"/"
 	?Not windows
 	If Right(outputdir,1)<>"/" outputdir:+"/"
 	?
