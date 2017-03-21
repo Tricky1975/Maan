@@ -16,3 +16,4 @@ echo packing maan engine
 jcr6 add $OUTPUT/maan_mac.jcr "#maan_mac.bj6" -doj
 rm -R maan.app
 
+jcr6 add $OUTPUT/maan_windows.jcr "#maan_windows.bj6" -doj

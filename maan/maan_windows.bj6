@@ -3,7 +3,7 @@
 FATSTORAGE:zlib
 
 FILE:maan.exe
-TARGET:ext
+TARGET:ext/maan.exe
 Storage:zlib
 FILE:maan_windows.ini
 TARGET:ini/maan.ini

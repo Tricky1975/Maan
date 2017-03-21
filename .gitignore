@@ -3,6 +3,9 @@
 .settings/
 MKL_Backup
 
+# I don't want any backups here
+*.bak
+
 # Executables
 *.exe
 *.app
