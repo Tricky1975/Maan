@@ -294,7 +294,7 @@ Type tgadtabber Extends TGadTemplate
 		For i=0 Until CountGadgetItems(	g.gadget)
 			sg = byname("TAB_"+id+"__TAB#"+i)
 			If Not sg GALE_Error "No access to: "+"TAB_"+id+"__TAB#"+i
-			sg.gadget.setshow i=SelectedGadgetItem(g.gadget)
+			if sg.gadget sg.gadget.setshow i=SelectedGadgetItem(g.gadget)
 			'CSay "Setshow: "+g.id+" "+Int(i=SelectedGadgetItem(g.gadget))
 		Next
 	End Method
