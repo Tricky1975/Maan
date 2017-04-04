@@ -317,7 +317,7 @@ Type tgadtab Extends TGadtemplate
 		AddGadgetItem P.Gadget,g.data.value("caption")
 		CSay " = Added tab ~q"+g.data.value("caption")+" to tabber: "+P.id
 		CSay " = Visibility update for : "+g.parent
-		tgadtabber(MapValueForKey(maanclasses,"Tabber")).action g.parent
+		tgadtabber(MapValueForKey(maanclasses,"Tabber")).action p.id 'g.parent
 	End Method
 End Type
 MapInsert maanclasses,"Tab",New tgadtab

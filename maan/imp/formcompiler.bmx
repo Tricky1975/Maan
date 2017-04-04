@@ -73,7 +73,7 @@ Function CompileForm(form$)
 			sis = line.find(" ")
 			If Prefixed(line,"item ")
 				ListAddLast w.startitems,line[5..]
-			ElseIf Prefixed(line,"tab ")
+			ElseIf Prefixed(Lower(line),"tab ")
 				Local pg:Tmaangadget = byname(curparent)
 				CSay "Tab ~q"+line[4..]+"~q for "+curparent
 				If pg.gc<>"Tabber" GALE_Error "Tabs may only be kids to a tabber and not a "+pg.gc
@@ -91,6 +91,7 @@ Function CompileForm(form$)
 				currentgadid=cid
 				ListAddLast gadorder,w
 				MapInsert gadbyname,cid,w
+				CSay "Tab created as: "+w.id
 			ElseIf pis>-1 Then
 				Local k$=line[..pis]
 				Local v$=line[pis+1..]
