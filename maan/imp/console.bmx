@@ -48,6 +48,7 @@ Public
 
 	Function CSay(M$="")
 		GaleCon.GaleConsoleWrite(M,255,180,0)
+		SetGadgetColor consolecontent,255,180,0,0
 	End Function
 	
 	CSay "Maan - coded by: Jeroen Broks"
