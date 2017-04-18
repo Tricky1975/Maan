@@ -291,10 +291,11 @@ Type tgadtabber Extends TGadTemplate
 		Local i
 		Local g:TMaanGadget = ByName(ID)
 		Local sg:TMaanGadget
+		DebugLog "Tab change - so let's change all visibility things >> "+i=SelectedGadgetItem(g.gadget)
 		For i=0 Until CountGadgetItems(	g.gadget)
 			sg = byname("TAB_"+id+"__TAB#"+i)
 			If Not sg GALE_Error "No access to: "+"TAB_"+id+"__TAB#"+i
-			if sg.gadget sg.gadget.setshow i=SelectedGadgetItem(g.gadget)
+			If sg.gadget sg.gadget.setshow i=SelectedGadgetItem(g.gadget)
 			'CSay "Setshow: "+g.id+" "+Int(i=SelectedGadgetItem(g.gadget))
 		Next
 	End Method

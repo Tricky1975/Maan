@@ -39,21 +39,33 @@ Public
 		Local srcgad:Tmaangadget
 		Local srctmp:tgadtemplate
 		Local check:Byte=1
-		PollEvent
+		'PollEvent
 		CSay "Init done... Everything will now be run"
 		Repeat
 			PollEvent
 			eid = EventID()
-			ESource = TGadget(EventSource())
-			If eid=event_windowclose And esource=GALE_ExitGadget End
-			If Not esource check=check And esource
+			Local es:Object = EventSource()
+			ESource = TGadget(es)
+			If eid=event_windowclose And esource=GALE_ExitGadget 
+				DebugLog "DEBUG WINDOW CLOSE!"
+				End
+			EndIf	
+			'If Not esource 
+			check=1
+			'If eid DebugLog "Event: "+eid+" Start Check:"+check
+			check=check And esource<>Null
+			'If eid DebugLog "sourcecheck:"+check+" on event: "+eid
 			If check srcgad = bygad(esource); check=check And srcgad 
+			'If eid DebugLog "gadcheck:"+check
 			If check srctmp = gettemplate(srcgad.gc); check = check And srctmp
+			'If eid DebugLog "templatecheck:"+check
 			If check
 				Select eid
 					Case event_gadgetaction
+						DebugLog "Action Event"
 						srctmp.action  bygad(esource).id
 					Case event_gadgetselect
+						DebugLog "Select Event"
 						'If esource CSay "We got a source "+bygad(esource).id									 	
 						Local g:tmaangadget = bygad(esource)
 						If g	
@@ -67,9 +79,13 @@ Public
 					Case event_windowclose	
 						GetTemplate(bygad(esource).gc).close   bygad(esource).id
 				End Select
-			?debug
+			?debugshit 'If not in use just use an unknown tag as it'll always be false in the preprocessor of BlitzMax
 			Else
 				'Print "False event created"
+				If esource Print "I do have a source"
+				If eid=event_gadgetaction Print "I got an action"
+				If srcgad Print "I have a gadget "+srcgad.id+" >>> "+srcgad.gc
+				If srctmp Print "And I do have a template"
 			?
 			EndIf	
 		Forever
