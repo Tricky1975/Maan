@@ -58,8 +58,17 @@ For Local t$=EachIn(tryext)
 	Print "Looking for "+jcrmain+t
 	If FileType(JCRMain+t) jcrext=t JCRYes=True
 Next
-If Not jcrYes Then Notify "No project attached!" End
-
+If Not jcrYes Then
+	?Debug
+	jcrext=""
+	Repeat
+		JCRMain = RequestFile("Please select a .MAAN file to debug with","Maan File:maan;JCR6:jcr;PKZIP:zip;Tape Archive:tar")
+		If Not jcrmain End
+	Until FileType(JCRMain)=1
+	?Not Debug
+	Notify "No project attached!" End
+	?
+EndIf
 
 CSay "Loading project: "+jcrmain+JCRext
 Global JCR:TJCRDir = JCR_Dir(jcrmain+JCRext)
