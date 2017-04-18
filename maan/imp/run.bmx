@@ -36,6 +36,9 @@ Private
 
 Public
 	Function Run()
+		Local srcgad:Tmaangadget
+		Local srctmp:tgadtemplate
+		Local check:Byte=1
 		PollEvent
 		CSay "Init done... Everything will now be run"
 		Repeat
@@ -43,22 +46,31 @@ Public
 			eid = EventID()
 			ESource = TGadget(EventSource())
 			If eid=event_windowclose And esource=GALE_ExitGadget End
-			Select eid
-				Case event_gadgetaction
-					GetTemplate(bygad(esource).gc).action  bygad(esource).id
-				Case event_gadgetselect
-					'If esource CSay "We got a source "+bygad(esource).id									 	
-					Local g:tmaangadget = bygad(esource)
-					If g	
-						If Not MapContains(MaanClasses,g.gc)
-							CSay "WARNING! Call to non-existent class "' +g.gc+" in select-event
-						Else
-							CSay "Existing so let's go!"
-							GetTemplate(g.gc).selectg g.id
+			If Not esource check=check And esource
+			If check srcgad = bygad(esource); check=check And srcgad 
+			If check srctmp = gettemplate(srcgad.gc); check = check And srctmp
+			If check
+				Select eid
+					Case event_gadgetaction
+						srctmp.action  bygad(esource).id
+					Case event_gadgetselect
+						'If esource CSay "We got a source "+bygad(esource).id									 	
+						Local g:tmaangadget = bygad(esource)
+						If g	
+							If Not MapContains(MaanClasses,g.gc)
+								CSay "WARNING! Call to non-existent class "' +g.gc+" in select-event
+							Else
+								CSay "Existing so let's go!"
+								GetTemplate(g.gc).selectg g.id
+							EndIf	
 						EndIf	
-					EndIf	
-				Case event_windowclose	
-					GetTemplate(bygad(esource).gc).close   bygad(esource).id
-			End Select
+					Case event_windowclose	
+						GetTemplate(bygad(esource).gc).close   bygad(esource).id
+				End Select
+			?debug
+			Else
+				'Print "False event created"
+			?
+			EndIf	
 		Forever
 	End Function
