@@ -37,18 +37,22 @@ MKL_Lic     "Maan - globals.bmx","GNU General Public License 3"
 
 Global tryext$[]=["",".maan",".jcr",".zip",".pak",".tar"]
 
+Global PrjID$
 ?macos
 DebugLog AppFile
-Private
+'Private
 	Global MacFile$ = AppFile
 	For Local i=1 To 3 macfile=ExtractDir(macfile) Next
 
 Public
 Global JCRMain$ = StripExt(macfile)+".app/Contents/Resources/"+StripAll(Macfile)
+prjid = StripAll(macfile)
 ?win32
 Global JCRMain$ = AppDir + "/" + StripAll(AppFile)
+prjid = StripAll(AppFile)
 ?linux
 Global JCRMain$ = AppDir + "/" + StripDir(AppFile)
+prjid = StripDir(AppFile)
 ?
 
 Global JCRExt$

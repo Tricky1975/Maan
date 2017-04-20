@@ -96,5 +96,39 @@ function MAAN_SYS_UserName() return MAAN.UName end
 
 Bye=MAAN.Bye
 	
-	
-	
+MAAN_System = MAAN.SysCall; MAAN_SysCall=MAAN.SysCall
+MAAN_Exec = MAAN.Exec
+
+MAAN_SaveString = MAAN.SaveString
+MAAN_LoadString = MAAN.LoadString
+
+function JCR_LoadString(j1,j2,crash)
+	local f1,f2
+	if j2 then f1=j1 f2=j2
+	else f1="*ME*" f2=j2 end
+	return MAAN_LoadString(f1,f2,crash)
+end
+
+function MAAN_SaveVar(variable,file)
+	MAAN_SaveString(serialize('local ret',variable).."~n~nreturn ret",file)
+end
+
+function MAAN_LoadVar(file,f2,crash)
+	local r = MAAN_LoadString(file,f2,crash)
+	if (not r) or r='' then return end
+	local f,e = pcall(loadstring(r))
+	if e then
+		if crash==true or crash==1 then SYS.Error("Compile[MAAN_LoadVar]: "..e) else CSay("ERROR! "..e) end
+		return
+	endif
+	local ret,e = pcall(f)
+	if e then
+		if crash==true or crash==1 then SYS.Error("Execute[MAAN_LoadVar]: "..e) else CSay("ERROR! "..e) end
+		return
+	endif
+	return ret
+end function
+
+function JCR_LoadVar(f1,f2,crash)
+	return MAAN_LoadVar(f1,f2,crash)
+end

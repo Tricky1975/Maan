@@ -126,6 +126,75 @@ Type MaanLuaAPI
 		End
 	End Method
 	
+	Method SysCall(a$)
+		system_ a
+	End Method
+	
+	Method Exec(a$)
+		If Not a CSay("ERROR! Exec NEEDS input!")
+		?win32
+		If Not FileType(a+".exe") 
+			CSay "ERROR! I could not find "+a+".exe"
+			Return
+		EndIf
+		system "~q"+a+".exe~q"
+		?MacOS
+		If FileType(a+".app")
+			system_ "open ~q"+a+".app~q"
+			Return
+		ElseIf FileType(macfile+"/Contents/Resources/"+a+".app")
+			system_ "open ~q"+macfile+"/Contents/Resources/"+a+".app~q"	
+		ElseIf FileType(macfile+"/Contents/Resources/"+a)
+			system_ "~q"+macfile+"/Contents/Resources/"+a+"~q"
+		EndIf		
+		?Not win32
+		' This approach is chosen, as this can apply to both Linux as Mac, but definitely NOT to Windows.
+		If Not FileType(a)
+			CSay "ERROR! I could not found executable "+a+"; please note that PATHs do not work here!"
+			Return
+		EndIf		
+		If Not ExtractDir(a) And Left(a,1)<>"/" a="./"+a
+		system_ "~q"+a+"~q"
+		? 	
+	End Method
+	
+	Method SaveStr(str$,fil$)
+		Local gohome = True
+		If Not fil Return CSay("ERROR! Save request to empty file name")
+		fil = Replace(fil,"\","/")
+		?win32
+		If Len(fil)>1 And Chr(fil[1])=":" gohome=False
+		?
+		If Prefixed(fil)="./" Or Chr(fil[0])="/" gohome=False
+		If gohome 
+			fil=Dirry("$AppSupport$/$LinuxDot$Maan/")+PrjID+"/"+fil
+			CreateDir ExtractDir(fil),1
+		EndIf	
+		SaveString str,fil
+	End Method
+	
+	Method LoadStr$(fil$,fil2$,Crash=False)
+		Local gohome = True
+		If Not fil Return CSay("ERROR! Save request to empty file name")
+		fil = Replace(fil,"\","/")
+		?win32
+		If Len(fil)>1 And Chr(fil[1])=":" gohome=False
+		?
+		If Prefixed(fil)="./" Or Chr(fil[0])="/" gohome=False
+		If gohome 
+			fil=project.Dirry("$AppSupport$/$LinuxDot$Maan/")+PrjID+"/"+fil
+		EndIf
+		Local J:Object = fil
+		If fil2 Then
+			If fil="*ME*" J=JCR
+			If crash Or JCR_Exists(	J,fil2) Return LoadString JCR_B(J,fil2)
+		Else
+			Return LoadString(fil)
+		endif
+	End Method
+	
+		
+	
  	Field UName$=StripDir(Dirry("$Home$"))
 
 End Type
