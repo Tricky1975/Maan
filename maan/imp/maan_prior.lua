@@ -99,8 +99,8 @@ Bye=MAAN.Bye
 MAAN_System = MAAN.SysCall; MAAN_SysCall=MAAN.SysCall
 MAAN_Exec = MAAN.Exec
 
-MAAN_SaveString = MAAN.SaveString
-MAAN_LoadString = MAAN.LoadString
+MAAN_SaveString = MAAN.SaveStr
+MAAN_LoadString = MAAN.LoadStr
 
 function JCR_LoadString(j1,j2,crash)
 	local f1,f2
@@ -120,15 +120,21 @@ function MAAN_LoadVar(file,f2,crash)
 	if e then
 		if crash==true or crash==1 then SYS.Error("Compile[MAAN_LoadVar]: "..e) else CSay("ERROR! "..e) end
 		return
-	endif
+	end
 	local ret,e = pcall(f)
 	if e then
 		if crash==true or crash==1 then SYS.Error("Execute[MAAN_LoadVar]: "..e) else CSay("ERROR! "..e) end
 		return
-	endif
+	end
 	return ret
-end function
+end 
 
 function JCR_LoadVar(f1,f2,crash)
 	return MAAN_LoadVar(f1,f2,crash)
+end
+
+
+function MAAN_Enabeled(gadget,value)
+	local g.MAAN.Gadget(gadget)
+	g.gadget.SetEnabled( ( { [true]=1, [false]=0} )[value~=false and value~=nil and value~=0 and value~=""])
 end
