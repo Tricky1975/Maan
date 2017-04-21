@@ -134,7 +134,7 @@ function JCR_LoadVar(f1,f2,crash)
 end
 
 
-function MAAN_Enabeled(gadget,value)
+function MAAN_Enabled(gadget,value)
 	local g = MAAN.Gadget(gadget)
 	g.gadget.SetEnabled( ( { [true]=1, [false]=0} )[value~=false and value~=nil and value~=0 and value~=""])
 end
