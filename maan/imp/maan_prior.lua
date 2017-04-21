@@ -115,7 +115,7 @@ end
 
 function MAAN_LoadVar(file,f2,crash)
 	local r = MAAN_LoadString(file,f2,crash)
-	if (not r) or r='' then return end
+	if (not r) or r=='' then return end
 	local f,e = pcall(loadstring(r))
 	if e then
 		if crash==true or crash==1 then SYS.Error("Compile[MAAN_LoadVar]: "..e) else CSay("ERROR! "..e) end
