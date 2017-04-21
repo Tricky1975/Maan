@@ -24,6 +24,7 @@ Version: 17.03.02
 End Rem
 Strict
 
+Import "module.h.bmx"
 
 Import "console.bmx"
 

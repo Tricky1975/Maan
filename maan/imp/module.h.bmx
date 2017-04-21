@@ -33,7 +33,8 @@ Import tricky_units.initfile2
 Import brl.pngloader
 Import tricky_units.Listfile
 Import tricky_units.Dirry
-Import tricky_units.MaxGui_Input
+Import tricky_units.MaxGUI_Input
+
 
 
 'JCR6

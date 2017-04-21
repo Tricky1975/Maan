@@ -165,7 +165,7 @@ Type MaanLuaAPI
 		?win32
 		If Len(fil)>1 And Chr(fil[1])=":" gohome=False
 		?
-		If Prefixed(fil)="./" Or Chr(fil[0])="/" gohome=False
+		If Prefixed(fil,"./") Or Chr(fil[0])="/" gohome=False
 		If gohome 
 			fil=Dirry("$AppSupport$/$LinuxDot$Maan/")+PrjID+"/"+fil
 			CreateDir ExtractDir(fil),1
@@ -180,17 +180,17 @@ Type MaanLuaAPI
 		?win32
 		If Len(fil)>1 And Chr(fil[1])=":" gohome=False
 		?
-		If Prefixed(fil)="./" Or Chr(fil[0])="/" gohome=False
+		If Prefixed(fil,"./") Or Chr(fil[0])="/" gohome=False
 		If gohome 
-			fil=project.Dirry("$AppSupport$/$LinuxDot$Maan/")+PrjID+"/"+fil
+			fil=Dirry(project.c("$AppSupport$/$LinuxDot$Maan/"))+PrjID+"/"+fil
 		EndIf
 		Local J:Object = fil
 		If fil2 Then
 			If fil="*ME*" J=JCR
-			If crash Or JCR_Exists(	J,fil2) Return LoadString JCR_B(J,fil2)
+			If crash Or JCR_Exists(	J,fil2) Return LoadString(JCR_B(J,fil2))
 		Else
 			Return LoadString(fil)
-		endif
+		EndIf
 	End Method
 	
 		
