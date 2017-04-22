@@ -24,7 +24,8 @@ Version: 17.03.02
 End Rem
 Strict
 
-Import "globals.bmx"
+Import "formcompiler.bmx"
+
 
 MKL_Version "Maan - lua.bmx","17.03.02"
 MKL_Lic     "Maan - lua.bmx","GNU General Public License 3"
@@ -202,7 +203,15 @@ Type MaanLuaAPI
 		Return Dirry(fil)
 	End Method
 	
-		
+	Method MkDir(d$,recurse=0)
+		Return CreateDir(d,recurse)
+	End Method
+	
+	Method LoadFormIfNeeded(Form$)
+		If Not MapContains(gadbyname,Form) Then
+			CompileForm form$[5..]
+		EndIf	
+	End Method	
 	
  	Field UName$=StripDir(Dirry("$Home$"))
 

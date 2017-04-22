@@ -164,3 +164,26 @@ end
 function NProceed(q)
 	return Sys.Sure(q,1)
 end
+
+-- This way you can just safely use os.exit to quit Maan, but the origianl exit still IS available in case you need it.
+originalexit = os.exit
+os.exit = MAAN.Bye
+
+-- Directory conrol
+function MkDir(dir,recurse)
+	return MAAN.MkDir(dir,boolint(recurse))
+end
+
+function MAAN_SetVisible(gadget,value)
+	local g = MAAN.Gadget(gadget)
+	g.gadget.SetShow(boolint(recurse))
+end
+
+function MAAN_Hide(gadget,value) MAAN_SetVisible(false) end
+
+function MAAN_Show(gadget,value)
+	if gadget:sub(1,5)=="FORM_" then
+		MAAN.LoadFormIfNeeded(gadget)
+	end
+	MAAN_SetVisible(true)
+end	
