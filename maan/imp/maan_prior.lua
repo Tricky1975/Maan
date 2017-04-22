@@ -151,3 +151,16 @@ end
 function Dirry(file)
 	return MAAN.GetDirry(file)
 end	
+
+function Confirm(q)
+	return Sys.Sure(q)==1
+end
+
+--[[ Return true on Yes, false on No and nil on Cancel ]]
+function Proceed(q)
+	return ({[0]=false,[1]=true})[Sys.Sure(q,1)]
+end
+
+function NProceed(q)
+	return Sys.Sure(q,1)
+end
