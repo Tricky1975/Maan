@@ -131,12 +131,12 @@ function MAAN_LoadVar(file,f2,crash)
 		if crash==true or crash==1 then SYS.Error("Compile[MAAN_LoadVar]: "..e) else CSay("ERROR! "..e) end
 		return
 	end
-	local ret,e = pcall(f)
+	local ret,e = pcall(e)
 	if not ret then
 		if crash==true or crash==1 then SYS.Error("Execute[MAAN_LoadVar]: "..e) else CSay("ERROR! "..e) end
 		return
 	end
-	return ret
+	return e
 end 
 
 function JCR_LoadVar(f1,f2,crash)
