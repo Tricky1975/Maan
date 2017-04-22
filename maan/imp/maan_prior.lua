@@ -185,5 +185,5 @@ function MAAN_Show(gadget,value)
 	if gadget:sub(1,5)=="FORM_" then
 		MAAN.LoadFormIfNeeded(gadget)
 	end
-	MAAN_SetVisible(true)
+	MAAN_SetVisible(gadget,true)
 end	
