@@ -189,9 +189,17 @@ Type MaanLuaAPI
 			If fil="*ME*" J=JCR
 			If crash Or JCR_Exists(	J,fil2) Return LoadString(JCR_B(J,fil2))
 		Else
-			If Not FileType(fil) return
+			If Not FileType(fil) Return
 			Return LoadString(fil)
 		EndIf
+	End Method
+	
+	Method FLType(fil$)
+		Return FileType(Fil)
+	End Method
+	
+	Method GetDirry$(fil$)
+		Return Dirry(fil)
 	End Method
 	
 		

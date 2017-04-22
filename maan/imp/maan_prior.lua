@@ -95,7 +95,7 @@ MAAN_Input = MAAN.Input
 function MAAN_SYS_UserName() return MAAN.UName end
 
 Bye=MAAN.Bye
-	
+
 MAAN_System = MAAN.SysCall; MAAN_SysCall=MAAN.SysCall
 MAAN_Exec = MAAN.Exec
 
@@ -138,3 +138,16 @@ function MAAN_Enabled(gadget,value)
 	local g = MAAN.Gadget(gadget)
 	g.gadget.SetEnabled( ( { [true]=1, [false]=0} )[value~=false and value~=nil and value~=0 and value~=""])
 end
+
+
+function IsDir(file)
+	return MAAN.FLType(file)==2
+end 
+
+function IsFile(file)
+	return MAAN.FLType(file)==1
+end
+
+function Dirry(file)
+	return MAAN.GetDirry(file)
+end	
