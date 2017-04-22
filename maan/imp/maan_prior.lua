@@ -70,8 +70,12 @@ end
 -- This one does not support icons. Another function may be able to do that.
 function MAAN_Add(gadget,item)
 	local g = MAAN.Gadget(gadget)
-	if g.rc~="ListBox" and g.rc~="ComboBox" then return end -- Safety
-	g.gadget.InsertItem(g,gadget.ItemCount(),item)
+	if g.gc~="ListBox" and g.gc~="ComboBox" then
+	   CSay("Adding to a "..g.gc.." is not allowed, man!")
+	   return 
+	end -- Safety
+	--g.gadget.InsertItem(g.gadget.ItemCount(),item)
+	MAAN.IAdd(gadget,item)
 end	
 
 function MAAN_Checked(gadget,value)

@@ -217,6 +217,11 @@ Type MaanLuaAPI
 		EndIf	
 	End Method	
 	
+	Method IAdd(GN$,T$)
+		Local g:tmaangadget = gadget(gN$)
+		AddGadgetItem g.gadget,t
+	End Method
+	
  	Field UName$=StripDir(Dirry("$Home$"))
 
 End Type
