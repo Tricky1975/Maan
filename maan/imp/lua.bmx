@@ -183,14 +183,17 @@ Type MaanLuaAPI
 		?
 		If Prefixed(fil,"./") Or Chr(fil[0])="/" gohome=False
 		If gohome 
-			fil=Dirry(project.c("$AppSupport$/$LinuxDot$Maan/"))+PrjID+"/"+fil
+			fil=Dirry("$AppSupport$/$LinuxDot$Maan/"+PrjID+"/"+fil)
 		EndIf
 		Local J:Object = fil
 		If fil2 Then
 			If fil="*ME*" J=JCR
 			If crash Or JCR_Exists(	J,fil2) Return LoadString(JCR_B(J,fil2))
 		Else
-			If Not FileType(fil) Return
+			If Not FileType(fil) 
+				CSay "File "+fil+" not found"
+				Return
+			EndIf	
 			Return LoadString(fil)
 		EndIf
 	End Method
@@ -204,6 +207,7 @@ Type MaanLuaAPI
 	End Method
 	
 	Method MkDir(d$,recurse=0)
+		DebugLog "MkDir(~q"+d+"~q,"+recurse+")"
 		Return CreateDir(d,recurse)
 	End Method
 	

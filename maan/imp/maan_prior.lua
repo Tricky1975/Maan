@@ -67,6 +67,13 @@ function MAAN_ItemText(gadget,item)
 	return MAAN.IText(gadget,item or -1)
 end
 
+-- This one does not support icons. Another function may be able to do that.
+function MAAN_Add(gadget,item)
+	local g = MAAN.Gadget(gadget)
+	if g.rc~="ListBox" and g.rc~="ComboBox" then return end -- Safety
+	g.gadget.InsertItem(g,gadget.ItemCount(),item)
+end	
+
 function MAAN_Checked(gadget,value)
      local g = MAAN.Gadget(gadget)
      if value~=nil then g.Gadget.SetSelected(boolint(value)) end
@@ -115,14 +122,17 @@ end
 
 function MAAN_LoadVar(file,f2,crash)
 	local r = MAAN_LoadString(file,f2,crash)
-	if (not r) or r=='' then return end
+	if (not r) or r=='' then 
+		CSay("LoadVar("..file..") returned nothing")
+		return 
+	end
 	local f,e = pcall(loadstring(r))
-	if e then
+	if not f then
 		if crash==true or crash==1 then SYS.Error("Compile[MAAN_LoadVar]: "..e) else CSay("ERROR! "..e) end
 		return
 	end
 	local ret,e = pcall(f)
-	if e then
+	if not ret then
 		if crash==true or crash==1 then SYS.Error("Execute[MAAN_LoadVar]: "..e) else CSay("ERROR! "..e) end
 		return
 	end
