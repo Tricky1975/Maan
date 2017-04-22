@@ -126,13 +126,14 @@ function MAAN_LoadVar(file,f2,crash)
 		CSay("LoadVar("..file..") returned nothing")
 		return 
 	end
-	local f,e = pcall(loadstring(r))
+	--[[
+	local f,e = pcall(loadstring,r)
 	if not f then
 		if crash==true or crash==1 then SYS.Error("Compile[MAAN_LoadVar]: "..e) else CSay("ERROR! "..e) end
 		return
-	end
-	local ret,e = pcall(e)
-	if not ret then
+	end]]
+	local success,e = pcall(loadstring(r))
+	if not success then
 		if crash==true or crash==1 then SYS.Error("Execute[MAAN_LoadVar]: "..e) else CSay("ERROR! "..e) end
 		return
 	end
