@@ -110,7 +110,7 @@ function JCR_LoadString(j1,j2,crash)
 end
 
 function MAAN_SaveVar(variable,file)
-	MAAN_SaveString(serialize('local ret',variable).."~n~nreturn ret",file)
+	MAAN_SaveString(serialize('local ret',variable).."\n\nreturn ret",file)
 end
 
 function MAAN_LoadVar(file,f2,crash)
@@ -171,7 +171,7 @@ os.exit = MAAN.Bye
 
 -- Directory conrol
 function MkDir(dir,recurse)
-	return MAAN.MkDir(dir,boolint(recurse))
+	return MAAN.MkDir(dir,boolint(recurse))==1
 end
 
 function MAAN_SetVisible(gadget,value)
@@ -179,7 +179,7 @@ function MAAN_SetVisible(gadget,value)
 	g.gadget.SetShow(boolint(recurse))
 end
 
-function MAAN_Hide(gadget,value) MAAN_SetVisible(false) end
+function MAAN_Hide(gadget,value) MAAN_SetVisible(gadget,false) end
 
 function MAAN_Show(gadget,value)
 	if gadget:sub(1,5)=="FORM_" then
