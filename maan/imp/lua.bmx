@@ -222,6 +222,22 @@ Type MaanLuaAPI
 		AddGadgetItem g.gadget,t
 	End Method
 	
+	Method IndexedGadgets$(Gadget$)
+		Local ret$,k$
+		For K$=EachIn MapKeys(gadbyname)
+			Local p,GDN$,IDX$
+			p=k.find("#")
+			If p>0
+				GDN=k[..p]
+				IDX=k[p+1..]
+				If Not ret ret:+",~n~t"
+				ret:+"~q"+IDX+"~q"
+			EndIf
+		Next	
+		Return "return {~n~t"+ret+"}"
+	End Method	
+				
+	
  	Field UName$=StripDir(Dirry("$Home$"))
 
 End Type

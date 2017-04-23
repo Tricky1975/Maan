@@ -43,6 +43,7 @@ Function CreateAllGadgets()
 			mg.createme; CSay " = Created gadget: "+mg.id; MapInsert gadbygad,mg.gadget,mg
 			mg.colorme
 			mg.pictureme
+			If mg.data.value("block").toupper()="YES" mg.gadget.setenabled False
 			For Local item$=EachIn mg.startitems AddGadgetItem mg.gadget,item Next
 		EndIf
 	Next

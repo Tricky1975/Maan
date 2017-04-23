@@ -184,14 +184,23 @@ end
 originalexit = os.exit
 os.exit = MAAN.Bye
 
--- Directory conrol
+-- Directory control
 function MkDir(dir,recurse)
 	return MAAN.MkDir(dir,boolint(recurse))==1
 end
 
 function MAAN_SetVisible(gadget,value)
 	local g = MAAN.Gadget(gadget)
-	g.gadget.SetShow(boolint(recurse))
+	g.gadget.SetShow(boolint(value))
+end
+
+function MAAN_Indexes(gadget)
+	local succ,fnc = pcall(IndexedGadgets(gadget))
+	if not succ then 
+		CSay("ERROR IN INDEXES GET REQUEST: "+fnc)
+	else
+		return fnc
+	end
 end
 
 function MAAN_Hide(gadget,value) MAAN_SetVisible(gadget,false) end
