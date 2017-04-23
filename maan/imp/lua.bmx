@@ -236,6 +236,10 @@ Type MaanLuaAPI
 		Next	
 		Return "return {~n~t"+ret+"}"
 	End Method	
+	
+	Method Exist(gadget$)
+		Return MapContains(Gadbyname,gadget)
+	End method
 				
 	
  	Field UName$=StripDir(Dirry("$Home$"))

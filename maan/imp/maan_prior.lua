@@ -211,3 +211,7 @@ function MAAN_Show(gadget,value)
 	end
 	MAAN_SetVisible(gadget,true)
 end	
+
+function MAAN_Exist(gadget)
+	return MAAN.Exist(gadget)~=0
+end
