@@ -230,8 +230,10 @@ Type MaanLuaAPI
 			If p>0
 				GDN=k[..p]
 				IDX=k[p+1..]
-				If ret ret:+",~n~t"
-				ret:+"~q"+IDX+"~q"
+				If GDN=Gadget
+					If ret ret:+",~n~t"
+					ret:+"~q"+IDX+"~q"
+				endif	
 			EndIf
 		Next	
 		Return "return {~n~t"+ret+"}"
