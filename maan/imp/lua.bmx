@@ -230,7 +230,7 @@ Type MaanLuaAPI
 			If p>0
 				GDN=k[..p]
 				IDX=k[p+1..]
-				If Not ret ret:+",~n~t"
+				If ret ret:+",~n~t"
 				ret:+"~q"+IDX+"~q"
 			EndIf
 		Next	
@@ -239,7 +239,7 @@ Type MaanLuaAPI
 	
 	Method Exist(gadget$)
 		Return MapContains(Gadbyname,gadget)
-	End method
+	End Method
 				
 	
  	Field UName$=StripDir(Dirry("$Home$"))

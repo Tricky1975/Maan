@@ -195,9 +195,10 @@ function MAAN_SetVisible(gadget,value)
 end
 
 function MAAN_Indexes(gadget)
-	local succ,fnc = pcall(IndexedGadgets(gadget))
+	local succ,fnc = pcall(loadstring(MAAN.IndexedGadgets(gadget)))
 	if not succ then 
-		CSay("ERROR IN INDEXES GET REQUEST: "+fnc)
+		CSay("ERROR IN INDEXES GET REQUEST: "..fnc)
+		CSay(MAAN.IndexedGadgets(gadget)) -- Debug line
 	else
 		return fnc
 	end
