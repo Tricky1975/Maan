@@ -265,7 +265,7 @@ Type MaanLuaAPI
 		Local J:TJCRDir = JCR
 		Local f$ = f1
 		If f2 
-			j = jcr_dir(f1)
+			j = JCR_Dir(f1)
 			f = f2
 		End If
 		Return JCR_Exists(J,f)
