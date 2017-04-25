@@ -261,11 +261,21 @@ Type MaanLuaAPI
 		Return "return {~n~t"+ret+"~n}"
 	End Method
 	
+	Method JCR_IsFile(f1$,f2$)
+		Local J:TJCRDir = JCR
+		Local f$ = f1
+		If f2 
+			j = jcr-dir(f1)
+			f = f2
+		End If
+		return JCR_Exists(J,f)
+	End Method
+	
 	Method ExDir$(d$)	Return ExtractDir(d)	End Method
 	Method ExExt$(d$)	Return ExtractExt(D)	End Method
 	Method StrDir$(d$)	Return StripDir(d)		End Method
 	Method StrExt$(d$)	Return StripExt(d)		End Method
-	Method StrAll$(d$)	Return StripAll(d)		End method
+	Method StrAll$(d$)	Return StripAll(d)		End Method
 	
 	
  	Field UName$=StripDir(Dirry("$Home$"))

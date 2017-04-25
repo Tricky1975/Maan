@@ -233,3 +233,8 @@ ExtractExt=MAAN.ExExt
 StripDir  =MAAN.StrDir
 StripExt  =MAAN.StrExt
 StripAll  =MAAN.StrAll
+
+
+function JCR_IsFile(f)
+	return MAAN.JCR_IsFile(f)>0
+end
