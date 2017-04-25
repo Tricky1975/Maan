@@ -204,6 +204,17 @@ function MAAN_Indexes(gadget)
 	end
 end
 
+function JCR_Dirs(gadget)
+	local succ,fnc = pcall(loadstring(MAAN.JCR_Dirs(gadget)))
+	if not succ then 
+		CSay("ERROR IN DIRLIST GET REQUEST: "..fnc)
+		CSay(MAAN.IndexedGadgets(gadget)) -- Debug line
+	else
+		return fnc
+	end
+end
+
+
 function MAAN_Hide(gadget,value) MAAN_SetVisible(gadget,false) end
 
 function MAAN_Show(gadget,value)
@@ -216,3 +227,9 @@ end
 function MAAN_Exist(gadget)
 	return MAAN.Exist(gadget)~=0
 end
+
+ExtractDir=MAAN.ExDir
+ExtractExt=MAAN.ExExt
+StripDir  =MAAN.StrDir
+StripExt  =MAAN.StrExt
+StripAll  =MAAN.StrAll

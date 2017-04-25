@@ -22,6 +22,7 @@ Rem
 	to the project the exceptions are needed for.
 Version: 17.03.02
 End Rem
+
 Strict
 
 Import "formcompiler.bmx"
@@ -138,7 +139,7 @@ Type MaanLuaAPI
 			CSay "ERROR! I could not find "+a+".exe"
 			Return
 		EndIf
-		system "~q"+a+".exe~q"
+		system_ "~q"+a+".exe~q"
 		?MacOS
 		If FileType(a+".app")
 			system_ "open ~q"+a+".app~q"
@@ -233,7 +234,7 @@ Type MaanLuaAPI
 				If GDN=Gadget
 					If ret ret:+",~n~t"
 					ret:+"~q"+IDX+"~q"
-				endif	
+				EndIf	
 			EndIf
 		Next	
 		Return "return {~n~t"+ret+"}"
@@ -242,7 +243,30 @@ Type MaanLuaAPI
 	Method Exist(gadget$)
 		Return MapContains(Gadbyname,gadget)
 	End Method
-				
+
+	Method JCR_Dirs$(JF$="")
+		Local J:TJCRDir = JCR
+		If JF J=JCR_Dir(JF)
+		Local TL:TList = New TList
+		Local D$
+		For Local f:TJCREntry=EachIn MapValues(J.entries)
+			D=ExtractDir(f.filename)
+			If (Not ListContains(TL,d)) And d ListAddLast tl,d
+		Next
+		Local ret$
+		For d=EachIn tl		
+			If ret ret:+",~n~t"
+			ret:+"~q"+d+"~q"
+		Next
+		Return "return {~n~t"+ret+"~n}"
+	End Method
+	
+	Method ExDir$(d$)	Return ExtractDir(d)	End Method
+	Method ExExt$(d$)	Return ExtractExt(D)	End Method
+	Method StrDir$(d$)	Return StripDir(d)		End Method
+	Method StrExt$(d$)	Return StripExt(d)		End Method
+	Method StrAll$(d$)	Return StripAll(d)		End method
+	
 	
  	Field UName$=StripDir(Dirry("$Home$"))
 
