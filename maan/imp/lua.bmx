@@ -265,10 +265,10 @@ Type MaanLuaAPI
 		Local J:TJCRDir = JCR
 		Local f$ = f1
 		If f2 
-			j = jcr-dir(f1)
+			j = jcr_dir(f1)
 			f = f2
 		End If
-		return JCR_Exists(J,f)
+		Return JCR_Exists(J,f)
 	End Method
 	
 	Method ExDir$(d$)	Return ExtractDir(d)	End Method
