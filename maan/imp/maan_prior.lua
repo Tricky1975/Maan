@@ -23,6 +23,7 @@ alert = Sys.Alert
 
 ByName = MAAN.Gadget -- For use in this file only!
 
+
 function CSay(msg)
     Console.Write(msg,255,255,255)
 end
@@ -238,3 +239,13 @@ StripAll  =MAAN.StrAll
 function JCR_IsFile(f)
 	return MAAN.JCR_IsFile(f)>0
 end
+
+function RequestFile(caption,filter,default)
+    return MAAN.RQF(caption,filter,0,default)
+end
+
+function RequestSaveFile(caption,filter,default)
+    return MAAN.RQF(caption,filter,0,default)
+end
+
+RequestDir = MAAN.RQD

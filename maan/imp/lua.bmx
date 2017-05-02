@@ -277,6 +277,14 @@ Type MaanLuaAPI
 	Method StrExt$(d$)	Return StripExt(d)		End Method
 	Method StrAll$(d$)	Return StripAll(d)		End Method
 	
+	Method RQF$(c$,f$,save=0,d$)
+		Return RequestFile(c,f,save,d)
+	End Method
+	
+	Method RQd$(c$)
+		Return RequestDir(c)
+	End Method
+	
 	
  	Field UName$=StripDir(Dirry("$Home$"))
 
