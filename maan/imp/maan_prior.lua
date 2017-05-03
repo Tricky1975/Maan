@@ -126,7 +126,7 @@ function MAAN_SaveVar(variable,file)
 end
 
 function MAAN_LoadVar(file,f2,crash)
-	local r = MAAN_LoadString(file,f2,crash)
+	local r = MAAN_LoadString(file,f2,crash) --.."\n\nreturn ret"
 	if (not r) or r=='' then 
 		CSay("LoadVar("..file..") returned nothing")
 		return 
@@ -229,11 +229,11 @@ function MAAN_Exist(gadget)
 	return MAAN.Exist(gadget)~=0
 end
 
-ExtractDir=MAAN.ExDir
-ExtractExt=MAAN.ExExt
-StripDir  =MAAN.StrDir
-StripExt  =MAAN.StrExt
-StripAll  =MAAN.StrAll
+ExtractDir = MAAN.ExDir
+ExtractExt = MAAN.ExExt
+StripDir   = MAAN.StrDir
+StripExt   = MAAN.StrExt
+StripAll   = MAAN.StrAll
 
 
 function JCR_IsFile(f)

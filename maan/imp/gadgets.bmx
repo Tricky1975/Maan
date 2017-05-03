@@ -268,6 +268,17 @@ Type tgadgettextfield Extends tgadtemplate
 End Type
 MapInsert maanclasses,"TextField",New tgadgettextfield
 
+Type tgadgettextArea Extends tgadtemplate
+	Method createme(G:TMaanGadget)
+		Local parent:TGadget = ByName(g.parent).gadget		
+		G.gadget = CreateTextArea(g.tx("x"),g.ty("y"),g.tx("width"),g.ty("height"),parent)
+		If g.data.value("caption") SetGadgetText g.gadget,g.data.value("caption")
+		If g.data.value("default") SetGadgetText g.gadget,g.data.value("default")
+		If g.data.value("default") And g.data.value("caption") CSay "WARNING! Both caption and default set for TextArea "+G.id+"! 'default' is dominant"
+	End Method		
+End Type
+MapInsert maanclasses,"TextArea",New tgadgettextArea
+
 
 Type tgadlistbox Extends tgadtemplate
 	Method action(id$)
