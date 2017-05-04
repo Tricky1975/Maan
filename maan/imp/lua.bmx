@@ -71,7 +71,7 @@ Type MaanLuaAPI
 	
 	Method Item(N$,i=-1)	
 		Local g:tmaangadget = gadget(n)
-		If i>=0 SelectGadgetItem(g.gadget)
+		If i>=0 SelectGadgetItem(g.gadget,i)
 		Return SelectedGadgetItem(g.gadget)
 	End Method
 	
