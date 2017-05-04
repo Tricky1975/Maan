@@ -69,6 +69,11 @@ Type MaanLuaAPI
 		Return GadgetItemText(g.gadget,item)
 	End Method
 	
+	Method Item(N$)	
+		Local g:tmaangadget = gadget(n)
+		Return SelectedGadgetItem(g.gadget)
+	End method
+	
 	Method State(n$) Return ButtonState(gadget(n).gadget) End Method
 	
 	Method JCRPatch(f$,path$,sig$)

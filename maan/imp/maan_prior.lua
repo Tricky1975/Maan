@@ -68,6 +68,9 @@ function MAAN_ItemText(gadget,item)
 	return MAAN.IText(gadget,item or -1)
 end
 
+
+MAAN_Item = MAAN.Item
+
 -- This one does not support icons. Another function may be able to do that.
 function MAAN_Add(gadget,item)
 	local g = MAAN.Gadget(gadget)
