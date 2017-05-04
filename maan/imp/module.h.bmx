@@ -31,6 +31,7 @@ Import maxgui.maxgui
 Import tricky_units.StringMap
 Import tricky_units.initfile2
 Import brl.pngloader
+Import brl.oggloader
 Import tricky_units.Listfile
 Import tricky_units.Dirry
 Import tricky_units.MaxGUI_Input
@@ -48,6 +49,14 @@ Import brl.eventqueue
 'GALE
 Import gale.mgui
 Import gale.multiscript
+
+'IncBin
+Incbin "error.ogg"
+
+GALE_GUI_ErrorSound = LoadSound("incbin::error.ogg")
+Rem
+  This sound file was made by Bertrof was was downloaded from https://www.freesound.org/people/Bertrof/sounds/351563/
+End Rem
 
 
 

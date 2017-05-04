@@ -291,6 +291,11 @@ Type MaanLuaAPI
 		Return RequestDir(c)
 	End Method
 	
+	Method AddText(g$,t$)
+		Local g:tmaangadget = gadget(gN$)
+		AddTextAreaText g.gadget,t
+	End method	
+	
 	
  	Field UName$=StripDir(Dirry("$Home$"))
 

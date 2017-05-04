@@ -159,6 +159,7 @@ Type gadwindow Extends tgadtemplate
 		Next
 		If g.parent<>"SYS_DESKTOP" parent=ByName(g.parent).gadget		
 		g.gadget = CreateWindow(caption,g.tx("x"),g.ty("y"),g.tx("width"),g.ty("height"),parent,flags)
+		ListAddLast GALEGUI_HideOnError,g.gadget
 		CSay "Window created "+G.id+" parent: "+g.parent+" "+Int(parent<>Null)+"    "+GadgetWidth(g.gadget)+"x"+GadgetHeight(g.gadget)
 	End Method		
 End Type

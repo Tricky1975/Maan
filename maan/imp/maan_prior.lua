@@ -232,6 +232,8 @@ function MAAN_Exist(gadget)
 	return MAAN.Exist(gadget)~=0
 end
 
+MAAN_AddText = MAAN.AddText
+
 ExtractDir = MAAN.ExDir
 ExtractExt = MAAN.ExExt
 StripDir   = MAAN.StrDir
