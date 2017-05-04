@@ -69,10 +69,11 @@ Type MaanLuaAPI
 		Return GadgetItemText(g.gadget,item)
 	End Method
 	
-	Method Item(N$)	
+	Method Item(N$,i=-1)	
 		Local g:tmaangadget = gadget(n)
+		If i>=0 SelectGadgetItem(g.gadget)
 		Return SelectedGadgetItem(g.gadget)
-	End method
+	End Method
 	
 	Method State(n$) Return ButtonState(gadget(n).gadget) End Method
 	
