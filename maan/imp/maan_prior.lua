@@ -69,7 +69,9 @@ function MAAN_ItemText(gadget,item)
 end
 
 
-MAAN_Item = MAAN.Item
+function MAAN_Item(gad,i)
+	return MAAN.Item(gad,i or -1)
+end
 
 -- This one does not support icons. Another function may be able to do that.
 function MAAN_Add(gadget,item)
@@ -191,6 +193,10 @@ os.exit = MAAN.Bye
 -- Directory control
 function MkDir(dir,recurse)
 	return MAAN.MkDir(dir,boolint(recurse))==1
+end
+
+function ChDir(dir)
+	return MAAN.ChDir(dir)
 end
 
 function MAAN_SetVisible(gadget,value)

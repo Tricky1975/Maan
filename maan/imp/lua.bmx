@@ -218,6 +218,10 @@ Type MaanLuaAPI
 		Return CreateDir(d,recurse)
 	End Method
 	
+	Method ChDir(d$)
+		ChangeDir(d)
+	End method
+	
 	Method LoadFormIfNeeded(Form$)
 		If Not MapContains(gadbyname,Form) Then
 			CompileForm form$[5..]
@@ -291,10 +295,10 @@ Type MaanLuaAPI
 		Return RequestDir(c)
 	End Method
 	
-	Method AddText(g$,t$)
-		Local g:tmaangadget = gadget(gN$)
+	Method AddText(N$,t$)
+		Local g:tmaangadget = gadget(N$)
 		AddTextAreaText g.gadget,t
-	End method	
+	End Method	
 	
 	
  	Field UName$=StripDir(Dirry("$Home$"))
