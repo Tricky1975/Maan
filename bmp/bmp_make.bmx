@@ -153,10 +153,10 @@ Function Output(platform$)
 			EndIf
 			If Not skip	
 				WriteStdout "= Extracting "+e.filename+" to "+outputdir+Dirry(f)+" ... "
+				CreateDir outputdir+ExtractDir(Dirry(f)),1
+				JCR_Extract j,e.filename,outputdir+Dirry(f),True
+				If FileType(outputdir+Dirry(f)) Print "Ok" Else Print "Failed"
 			EndIf	
-			CreateDir outputdir+ExtractDir(Dirry(f)),1
-			JCR_Extract j,e.filename,outputdir+Dirry(f),True
-			If FileType(outputdir+Dirry(f)) Print "Ok" Else Print "Failed"
 		End If
 		CreateDir outputdir+ExtractDir(outputdir+Dirry(i.c("resout")))
 		If Not CopyFile(swapjcr,outputdir+Dirry(i.c("resout"))) Print "= Resource could not be properly copied to: "+outputdir+Dirry(i.c("resout")) Return	
@@ -166,7 +166,32 @@ Function Output(platform$)
 			WriteStdout "= Copying "+fv+": "+projectini.c(fv)+ " ... "
 			If CopyFile(projectini.c(fv),Dirry(i.c(fv))) Print "Ok" Else Print "Failed"
 		EndIf
-	Next	
+	Next
+	If projectini.list("RESOURCES."+Platform)
+		Print "Resources:"
+		For Local res$=EachIn projectini.list("RESOURCES."+Platform)
+			Local p=res.find(" > ")
+			Local src$,tgt$
+			If p<=1 Then
+				src=Trim(res)
+				tgt=Trim(StripDir(res))
+			Else
+				src=Trim(res[..p])
+				tgt=Trim(res[p+3..])
+			EndIf
+			Select FileType(src)
+				Case 1
+					WriteStdout "= Copying resource file "+src+" to "+tgt+" ... "
+					If CopyFile(src,Dirry(i.c("CopyResources"))+"/"+tgt) Print "Success" Else Print "FAILED!"
+				Case 2
+					WriteStdout "= Copying resource dir  "+src+" to "+tgt+" ... "	
+					If CopyDir(src,Dirry(i.c("CopyResources"))+"/"+tgt) Print "Success" Else Print "FAILED!"
+				Default
+					Print "ERROR! I couldn't process: "+src
+			End Select
+		Next
+	EndIf		
+					
 End Function
 
 Function iOutput()
