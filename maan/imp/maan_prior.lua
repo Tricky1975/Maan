@@ -224,6 +224,35 @@ function JCR_Dirs(gadget)
 	end
 end
 
+function DirList(dir,ftype,unixhidden)
+	local uh = boolint(unixhidden)
+	local t = ({[1]=1,[2]=2,['file']=1,['dir']=2,f=1,d=2})[ftype] or (function() Say('ERROR! DirList unknonw type -- '..sval(ftype)) return nil end)()
+	local succ,res = pcall(loadstring(MAAN.DirList(dir,t,uh)))
+	if not succ then
+	   CSay("ERROR! Listdir -- Couldn't read: "..dir)
+	   return nil
+    end
+    return res
+end
+
+function DirTree(dir,unixhidden)
+	local uh = boolint(unixhidden)
+	local succ,res = pcall(loadstring(MAAN.Tree(dir,t,uh)))
+	if not succ then
+	   CSay("ERROR! DirTree -- Couldn't read: "..dir)
+	   return nil
+    end
+    return res
+end
+
+function Poll()
+   -- Calling this will just poll an event and all the events it gets will be returned into nothingness.
+   -- This function can however be used in time consuming operations to make the program still respond to stuff
+   -- So the underlying OS won't deem the program crashed or anything.
+   -- Changed screen operations can also be updated accordingly this way.
+   MAAN.Poll()
+end    
+
 
 function MAAN_Hide(gadget,value) MAAN_SetVisible(gadget,false) end
 

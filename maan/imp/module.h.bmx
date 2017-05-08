@@ -29,10 +29,12 @@ SuperStrict
 'General
 Import maxgui.maxgui
 Import tricky_units.StringMap
-Import tricky_units.initfile2
+Import tricky_units.GINI
 Import brl.pngloader
 Import brl.oggloader
 Import tricky_units.Listfile
+Import tricky_units.ListDir
+Import tricky_units.tree
 Import tricky_units.Dirry
 Import tricky_units.MaxGUI_Input
 

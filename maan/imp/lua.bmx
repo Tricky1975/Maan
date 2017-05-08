@@ -220,7 +220,7 @@ Type MaanLuaAPI
 	
 	Method ChDir(d$)
 		ChangeDir(d)
-	End method
+	End Method
 	
 	Method LoadFormIfNeeded(Form$)
 		If Not MapContains(gadbyname,Form) Then
@@ -299,6 +299,30 @@ Type MaanLuaAPI
 		Local g:tmaangadget = gadget(N$)
 		AddTextAreaText g.gadget,t
 	End Method	
+	
+	Method DirList$(d$,flag,hidden=0)
+		Local lijst:TList=ListDir(d,flag,hidden)
+		Local ret$
+		For d=EachIn lijst		
+			If ret ret:+",~n~t"
+			ret:+"~q"+d+"~q"
+		Next
+		Return "return {~n~t"+ret+"~n}"		
+	End Method
+	
+	Method Tree$(d$,hidden=0)
+		Local lijst:TList=CreateTree(d,1,hidden)
+		Local ret$
+		For d=EachIn lijst		
+			If ret ret:+",~n~t"
+			ret:+"~q"+d+"~q"
+		Next
+		Return "return {~n~t"+ret+"~n}"		
+	End Method
+	
+	Method Poll()
+		PollEvent
+	End method
 	
 	
  	Field UName$=StripDir(Dirry("$Home$"))
