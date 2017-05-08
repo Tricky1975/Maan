@@ -236,7 +236,7 @@ Type MaanLuaAPI
 	Method IClear(GN$)
 		Local g:tmaangadget = gadget(gN$)
 		ClearGadgetItems g.gadget
-	End method
+	End Method
 	
 	Method IndexedGadgets$(Gadget$)
 		Local ret$,k$
@@ -308,6 +308,7 @@ Type MaanLuaAPI
 	Method DirList$(d$,flag,hidden=0)
 		Local lijst:TList=ListDir(d,flag,hidden)
 		Local ret$
+		If Not lijst Return "return nil"
 		For d=EachIn lijst		
 			If ret ret:+",~n~t"
 			ret:+"~q"+d+"~q"
@@ -318,6 +319,7 @@ Type MaanLuaAPI
 	Method Tree$(d$,hidden=0)
 		Local lijst:TList=CreateTree(d,1,hidden)
 		Local ret$
+		If Not lijst Return "return nil"
 		For d=EachIn lijst		
 			If ret ret:+",~n~t"
 			ret:+"~q"+d+"~q"
