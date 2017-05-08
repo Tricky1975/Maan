@@ -84,6 +84,10 @@ function MAAN_Add(gadget,item)
 	MAAN.IAdd(gadget,item)
 end	
 
+function MAAN_Clear(gadget)
+    MAAN.IClear(gadget)
+end
+
 function MAAN_Checked(gadget,value)
      local g = MAAN.Gadget(gadget)
      if value~=nil then g.Gadget.SetSelected(boolint(value)) end
@@ -226,7 +230,7 @@ end
 
 function DirList(dir,ftype,unixhidden)
 	local uh = boolint(unixhidden)
-	local t = ({[1]=1,[2]=2,['file']=1,['dir']=2,f=1,d=2})[ftype] or (function() Say('ERROR! DirList unknonw type -- '..sval(ftype)) return nil end)()
+	local t = ({[1]=1,[2]=2,['file']=1,['dir']=2,f=1,d=2,all=0,[0]=0,a=0})[ftype or 'all'] or (function() CSay('ERROR! DirList unknown type -- '..sval(ftype)) return nil end)()
 	local succ,res = pcall(loadstring(MAAN.DirList(dir,t,uh)))
 	if not succ then
 	   CSay("ERROR! Listdir -- Couldn't read: "..dir)

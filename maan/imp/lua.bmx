@@ -233,6 +233,11 @@ Type MaanLuaAPI
 		AddGadgetItem g.gadget,t
 	End Method
 	
+	Method IClear(GN$)
+		Local g:tmaangadget = gadget(gN$)
+		ClearGadgetItems g.gadget
+	End method
+	
 	Method IndexedGadgets$(Gadget$)
 		Local ret$,k$
 		For K$=EachIn MapKeys(gadbyname)
@@ -322,7 +327,7 @@ Type MaanLuaAPI
 	
 	Method Poll()
 		PollEvent
-	End method
+	End Method
 	
 	
  	Field UName$=StripDir(Dirry("$Home$"))
