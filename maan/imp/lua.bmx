@@ -73,7 +73,7 @@ Type MaanLuaAPI
 		Local g:tmaangadget = gadget(n)
 		If i>=0 
 			SelectGadgetItem(g.gadget,i)
-			Local mc=tgadtemplate(MapValueForKey(maanclasses,g.gc))
+			Local mc:tgadtemplate=tgadtemplate(MapValueForKey(maanclasses,g.gc))
 			mc.gselect n
 		EndIf	
 		Return SelectedGadgetItem(g.gadget)
