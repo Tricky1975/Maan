@@ -80,7 +80,7 @@ Type MaanLuaAPI
 	End Method
 	
 	Method ICount(N$)
-		Return CountGadgetItems(gadget(n).g)
+		Return CountGadgetItems(gadget(n).gadget)
 	End Method
 	
 	Method State(n$) Return ButtonState(gadget(n).gadget) End Method
