@@ -71,9 +71,17 @@ Type MaanLuaAPI
 	
 	Method Item(N$,i=-1)	
 		Local g:tmaangadget = gadget(n)
-		If i>=0 SelectGadgetItem(g.gadget,i)
+		If i>=0 
+			SelectGadgetItem(g.gadget,i)
+			Local mc=tgadtemplate(MapValueForKey(maanclasses,gc))
+			mc.gselect n
+		EndIf	
 		Return SelectedGadgetItem(g.gadget)
 	End Method
+	
+	Method ICount(N$)
+		Return CountGadgetItems(gadget(n).g)
+	End method
 	
 	Method State(n$) Return ButtonState(gadget(n).gadget) End Method
 	

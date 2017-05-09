@@ -88,6 +88,8 @@ function MAAN_Clear(gadget)
     MAAN.IClear(gadget)
 end
 
+function MAAN_ItemCount(gadget) return MAAN.ICount(gadget) end
+
 function MAAN_Checked(gadget,value)
      local g = MAAN.Gadget(gadget)
      if value~=nil then g.Gadget.SetSelected(boolint(value)) end
