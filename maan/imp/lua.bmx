@@ -73,7 +73,7 @@ Type MaanLuaAPI
 		Local g:tmaangadget = gadget(n)
 		If i>=0 
 			SelectGadgetItem(g.gadget,i)
-			Local mc=tgadtemplate(MapValueForKey(maanclasses,gc))
+			Local mc=tgadtemplate(MapValueForKey(maanclasses,g.gc))
 			mc.gselect n
 		EndIf	
 		Return SelectedGadgetItem(g.gadget)
@@ -244,7 +244,7 @@ Type MaanLuaAPI
 	Method TAdd(GN$,T$)
 		Local g:tmaangadget = gadget(gN$)
 		AddTextAreaText G.GADGET,T
-	End method	
+	End Method	
 	
 	Method IClear(GN$)
 		Local g:tmaangadget = gadget(gN$)
