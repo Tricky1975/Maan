@@ -76,7 +76,10 @@ end
 -- This one does not support icons. Another function may be able to do that.
 function MAAN_Add(gadget,item)
 	local g = MAAN.Gadget(gadget)
-	if g.gc~="ListBox" and g.gc~="ComboBox" then
+	if g.gc=="TextArea" then
+		MAAN.TAdd(gadget,item)
+		return
+	elseif g.gc~="ListBox" and g.gc~="ComboBox" then
 	   CSay("Adding to a "..g.gc.." is not allowed, man!")
 	   return 
 	end -- Safety

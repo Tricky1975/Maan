@@ -81,7 +81,7 @@ Type MaanLuaAPI
 	
 	Method ICount(N$)
 		Return CountGadgetItems(gadget(n).g)
-	End method
+	End Method
 	
 	Method State(n$) Return ButtonState(gadget(n).gadget) End Method
 	
@@ -240,6 +240,11 @@ Type MaanLuaAPI
 		Local g:tmaangadget = gadget(gN$)
 		AddGadgetItem g.gadget,t
 	End Method
+	
+	Method TAdd(GN$,T$)
+		Local g:tmaangadget = gadget(gN$)
+		AddTextAreaText G.GADGET,T
+	End method	
 	
 	Method IClear(GN$)
 		Local g:tmaangadget = gadget(gN$)
